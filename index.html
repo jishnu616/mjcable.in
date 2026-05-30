@@ -1,158 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MJ Cable Network</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJ Cable Network | Premium Digital Services</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 
-<style>
-body{
-font-family:Arial,sans-serif;
-margin:0;
-padding:0;
-background:#f5f5f5;
-color:#333;
-}
+    <style>
+        :root {
+            --primary: #003366;
+            --secondary: #00a8ff;
+            --accent: #25D366;
+            --dark: #1a1a1a;
+            --light: #f9f9f9;
+        }
 
-header{
-background:#003366;
-color:white;
-padding:60px 20px;
-text-align:center;
-}
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
 
-header h1{
-font-size:48px;
-margin:0;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--light);
+            color: #444;
+            line-height: 1.6;
+        }
 
-header p{
-font-size:20px;
-margin-top:10px;
-}
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, #002244 0%, #004488 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
 
-section{
-padding:50px 20px;
-max-width:1200px;
-margin:auto;
-}
+        header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin: 0;
+            letter-spacing: -1px;
+        }
 
-.card-container{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-justify-content:center;
-}
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
 
-.card{
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-width:280px;
-}
+        section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
 
-.card h3{
-color:#003366;
-}
+        h2 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
 
-.contact{
-background:#003366;
-color:white;
-text-align:center;
-padding:50px 20px;
-}
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
 
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px 20px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-}
+        /* Modern Grid Cards */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
 
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:15px;
-}
-</style>
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border-bottom: 4px solid transparent;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--secondary);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        /* Why Choose Us List */
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .contact p { margin: 10px 0; font-size: 1.1rem; }
+
+        /* Floating WhatsApp Button */
+        .whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.1);
+            background: #20ba5a;
+        }
+
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            header { padding: 40px 15px; }
+            .whatsapp { bottom: 20px; right: 20px; padding: 12px 20px; }
+        }
+    </style>
 </head>
-
 <body>
 
 <header>
-<h1>MJ Cable Network</h1>
-<p>Digital TV & High-Speed FTTH Broadband Services</p>
+    <h1>MJ Cable Network</h1>
+    <p>20 Years of Excellence in Digital & Broadband Solutions</p>
 </header>
 
-<section>
-<h2>About Us</h2>
-<p>
-With over 20 years of rich experience in the media and entertainment industry, MJ Cable Network has grown from a humble local cable provider into a modern digital hub. Based proudly in Nellikkattiri, Palakkad district, we have spent the last two decades keeping our community informed, entertained, and connected.
-What started as a mission to deliver clear TV signals to local households has now evolved into a state-of-the-art network infrastructure. Today, we don't just bring you premium digital television through Kerala Vision Digital TV, but we also power local homes, businesses, and schools with high-speed fiber internet through India’s top broadband providers like Kerala Vision Broadband, BSNL Bharat Fiber, and KFON.
-</p>
+<section id="about">
+    <h2>About Our Journey</h2>
+    <p style="text-align: center; max-width: 800px; margin: auto;">
+        From a local cable provider to a high-tech digital hub in <strong>Nellikkattiri, Palakkad</strong>. 
+        We bridge the gap between you and the world with cutting-edge FTTH technology and the reliability 
+        of 20+ years of industry experience.
+    </p>
 </section>
 
-<section>
-<h2>Our Services</h2>
-
-<div class="card-container">
-
-<div class="card">
-<h3>Kerala Vision Digital TV</h3>
-<p>"With MJ Cable Network, bring home the ultimate entertainment experience. Get over 300+ Kerala Vision HD and digital channels with absolute clarity. Thanks to our pure fiber-optic network (FTTH/FTTP), your television and high-speed broadband will run seamlessly 24/7, no matter the weather."</p>
-</div>
-
-<div class="card">
-<h3>Kerala Vision Broadband</h3>
-<p>Blazing-Fast Internet with Kerala Vision Broadband "Connect to India's 6th largest internet service provider, brought directly to your home by MJ Network. Experience ultra-fast, seamless streaming, lag-free online gaming, and uninterrupted work-from-home sessions. With unlimited data packages and pure fiber-optic technology, we keep your home running at full speed."</p>
-</div>
-
-<div class="card">
-<h3>BSNL Bharat Fiber</h3>
-<p>BSNL Bharat Fiber: The Nation’s Trusted High-Speed Internet "Experience the raw power of India’s largest and most reliable telecom network, brought to your neighborhood by MJ Network. BSNL Bharat Fiber (FTTH) delivers supercharged internet speeds with unmatched network stability. From seamless video conferencing to endless entertainment, connect with the ultimate trust of BSNL."</p>
-</div>
-
-<div class="card">
-<h3>KFON Broadband</h3>
-<p>KFON Broadband: Kerala’s Own High-Speed Network "Bring home the power of Kerala’s flagship digital infrastructure, delivered straight to your doorstep by MJ Network. KFON offers high-speed, secure, and highly affordable fiber internet designed to bridge the digital divide. Enjoy seamless connectivity for e-governance services, online education, and family entertainment with rock-solid stability."</p>
-</div>
-
-</div>
+<section id="services">
+    <h2>Premium Services</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>Kerala Vision TV</h3>
+            <p>300+ HD & Digital channels delivered via pure fiber-optic network. Weather-proof entertainment for your family.</p>
+        </div>
+        <div class="card">
+            <h3>Kerala Vision Broadband</h3>
+            <p>India's 6th largest ISP. Ultra-fast streaming and lag-free gaming with unlimited data packages.</p>
+        </div>
+        <div class="card">
+            <h3>BSNL Bharat Fiber</h3>
+            <p>The nation's most trusted network. High stability for video conferencing and professional work.</p>
+        </div>
+        <div class="card">
+            <h3>KFON Broadband</h3>
+            <p>Kerala's flagship infrastructure. Affordable, secure, and perfect for e-education and government services.</p>
+        </div>
+    </div>
 </section>
 
-<section>
-<h2>Why Choose Us?</h2>
-
-<ul>
-<li>20+ Years Experience</li>
-<li>FTTH Fiber Network</li>
-<li>Reliable Digital TV Services</li>
-<li>Local Customer Support</li>
-<li>Fast Issue Resolution</li>
-</ul>
-
+<section id="why-us">
+    <h2>Why Choose MJ Network?</h2>
+    <ul class="features-list">
+        <li>20+ Years Experience</li>
+        <li>Advanced FTTH Network</li>
+        <li>24/7 Digital Stability</li>
+        <li>Local Expert Support</li>
+        <li>Rapid Issue Resolution</li>
+    </ul>
 </section>
 
 <div class="contact">
-<h2>Contact Us</h2>
-<p><strong>Phone:</strong> 9447855342</p>
-<p><strong>Email:</strong> pcvkizhayoor@gmail.com</p>
-<p><strong>Address:</strong> EK Building, Pettikkada, Nellikkattiri, Palakkad - 679533</p>
+    <h2>Get In Touch</h2>
+    <p>📍 EK Building, Pettikkada, Nellikkattiri, Palakkad - 679533</p>
+    <p>📞 <strong>9447855342</strong></p>
+    <p>✉️ pcvkizhayoor@gmail.com</p>
 </div>
 
 <a class="whatsapp" href="https://wa.me/919447855342" target="_blank">
-WhatsApp Us
+    <span>💬 WhatsApp Us</span>
 </a>
 
 <footer>
-© 2026 MJ Cable Network. All Rights Reserved.
+    &copy; 2026 MJ Cable Network. All Rights Reserved.
 </footer>
 
 </body>
