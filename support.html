@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support | MJ Cable Network</title>
+    <title>Register-Complaints/ New connection | MJ Cable</title>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #003366; --accent: #e59441; --dark: #111827; }
@@ -12,7 +12,6 @@
         nav a { text-decoration: none; color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; }
         header { background: #001f3f; padding: 30px; text-align: center; }
         .logo-small { width: 250px; }
-        
         .container { padding: 60px 20px; max-width: 1000px; margin: auto; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
         .form-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
@@ -21,7 +20,6 @@
         button { width: 100%; padding: 14px; border: none; border-radius: 8px; font-weight: 700; color: white; cursor: pointer; text-transform: uppercase; }
         .btn-reg { background: var(--accent); }
         .btn-comp { background: #dc2626; }
-
         .contact-box { background: var(--dark); color: white; text-align: center; padding: 60px 20px; margin-top: 40px; border-radius: 20px; }
         footer { text-align: center; padding: 30px; color: #666; font-size: 0.8rem; }
     </style>
@@ -29,12 +27,11 @@
 <body>
     <nav>
         <a href="index.html">Home</a>
-        <a href="support.html">Apply / Complaints</a>
+        <a href="support.html">Register-Complaints/ New connection</a>
     </nav>
-    <header><img src="logo.jpg" class="logo-small"></header>
-
+    <header><img src="logo.jpg" class="logo-small" alt="MJ Cable Network"></header>
     <div class="container">
-        <h2 style="text-align: center; color: #003366; text-transform: uppercase;">Support & Applications</h2>
+        <h2 style="text-align: center; color: #003366; text-transform: uppercase; margin-bottom: 40px;">Register-Complaints/ New connection</h2>
         <div class="grid">
             <div class="form-card">
                 <h3>New Connection</h3>
@@ -52,16 +49,13 @@
                 <button class="btn-comp" onclick="send('Complaint', 'cn','cp','ca','cid')">Submit Complaint</button>
             </div>
         </div>
-
         <div class="contact-box">
             <h3>Visit or Call Us</h3>
             <p>📍 EK Building, Pettikkada, Nellikkattiri, Palakkad - 679533</p>
             <p>📞 9447855342 | ✉️ pcvkizhayoor@gmail.com</p>
         </div>
     </div>
-
     <footer>© 2026 MJ Cable Network.</footer>
-
     <script>
         function send(type, ni, pi, ai, ci) {
             const name = document.getElementById(ni).value;
