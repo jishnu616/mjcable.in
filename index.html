@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MJ Cable Network | Digital TV & High-Speed Broadband</title>
+    <title>MJ Cable Network</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -16,38 +16,64 @@
             --white: #ffffff;
         }
 
-        * { box-sizing: border-box; transition: all 0.3s ease; }
+        * { 
+            box-sizing: border-box; 
+            scroll-behavior: smooth; 
+        }
 
         body {
             font-family: 'Inter', sans-serif;
-            margin: 0; padding: 0;
+            margin: 0; 
+            padding: 0;
             background: var(--light-bg);
             color: #333;
             line-height: 1.6;
         }
 
+        /* Sticky Navigation Bar */
+        nav {
+            background: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-navy);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* Header Section */
         header {
             background: linear-gradient(135deg, var(--dark-navy) 0%, #004080 100%);
             color: white;
-            padding: 60px 20px 100px 20px;
+            padding: 80px 20px 120px 20px;
             text-align: center;
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
         }
 
         .main-logo {
-            max-width: 280px;
+            max-width: 300px;
             height: auto;
             filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.3));
         }
 
-        header p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            margin: 15px auto 0;
-        }
-
+        /* Sections */
         section {
-            padding: 60px 20px;
+            padding: 80px 20px;
             max-width: 1100px;
             margin: auto;
         }
@@ -55,8 +81,9 @@
         h2 {
             text-align: center;
             color: var(--dark-navy);
-            font-size: 2.2rem;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-weight: 700;
         }
 
         h2::after {
@@ -68,16 +95,27 @@
             margin: 10px auto;
         }
 
-        /* ISP Service Cards */
+        /* Content Box for About Us */
+        .content-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-top: -60px; /* Overlap effect */
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Grid for Internet Services */
         .card-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
         }
 
         .card {
             background: var(--white);
-            padding: 30px;
+            padding: 35px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             text-align: center;
@@ -86,13 +124,8 @@
             align-items: center;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-
         .isp-logo {
-            height: 80px; /* Fixed height for uniformity */
+            height: 80px;
             width: auto;
             margin-bottom: 20px;
             object-fit: contain;
@@ -100,33 +133,17 @@
 
         .card h3 {
             color: var(--dark-navy);
-            margin: 10px 0;
-            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
         .card p {
             font-size: 0.95rem;
-            color: #666;
+            color: #555;
+            text-align: justify;
         }
 
-        /* Features */
-        .features-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            list-style: none;
-            padding: 0;
-        }
-
-        .features-list li {
-            background: var(--white);
-            padding: 12px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-
+        /* Contact Section */
         .contact {
             background: var(--dark-navy);
             color: white;
@@ -135,6 +152,12 @@
             border-radius: 60px 60px 0 0;
         }
 
+        .contact p {
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+        /* WhatsApp Button */
         .whatsapp {
             position: fixed;
             bottom: 30px;
@@ -147,75 +170,85 @@
             font-weight: bold;
             z-index: 1000;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.1);
         }
 
         footer {
-            background: #0d0d0d;
+            background: #000;
             color: #888;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
+            font-size: 0.9rem;
         }
 
+        /* Mobile View Adjustments */
         @media (max-width: 600px) {
-            .main-logo { max-width: 200px; }
-            .isp-logo { height: 60px; }
+            nav { gap: 15px; padding: 10px; }
+            nav a { font-size: 0.75rem; }
+            h2 { font-size: 1.5rem; }
+            header { padding: 40px 20px 80px; }
+            .main-logo { max-width: 220px; }
         }
     </style>
 </head>
 <body>
 
+<nav>
+    <a href="#about">About Us</a>
+    <a href="#internet-services">Products/Services</a>
+    <a href="#contact">Contact</a>
+</nav>
+
 <header>
     <img src="logo.jpg" alt="MJ Cable Network" class="main-logo">
-    <p>Premium Digital TV & Ultra-Fast Fiber Broadband</p>
 </header>
 
-<section id="services">
-    <h2>Our Connectivity Partners</h2>
+<section id="about">
+    <h2>About MJ Cable Network</h2>
+    <div class="content-box">
+        <p>With over 20 years of rich experience in the media and entertainment industry, MJ Cable Network has grown from a humble local cable provider into a modern digital hub. Based proudly in Nellikkattiri, Palakkad district, we have spent the last two decades keeping our community informed, entertained, and connected. What started as a mission to deliver clear TV signals to local households has now evolved into a state-of-the-art network infrastructure. Today, we don't just bring you premium digital television through Kerala Vision Digital TV, but we also power local homes, businesses, and schools with high-speed fiber internet through India’s top broadband providers like Kerala Vision Broadband, BSNL Bharat Fiber, and KFON.</p>
+    </div>
+</section>
+
+<section id="internet-services">
+    <h2>IN internet services</h2>
     <div class="card-container">
         
         <div class="card">
-            <img src="keralavision.jpg" alt="Kerala Vision" class="isp-logo">
-            <h3>Kerala Vision</h3>
-            <p>High-speed broadband and 300+ Digital TV channels. Reliable entertainment and internet for every home.</p>
+            <img src="keralvision.jpg" alt="KERALA VISION" class="isp-logo">
+            <h3>KERALA VISION</h3>
+            <p>Blazing-Fast Internet with Kerala Vision Broadband "Connect to India's 6th largest internet service provider, brought directly to your home by MJ Network. Experience ultra-fast, seamless streaming, lag-free online gaming, and uninterrupted work-from-home sessions. With unlimited data packages and pure fiber-optic technology, we keep your home running at full speed."</p>
         </div>
 
         <div class="card">
-            <img src="bsnl.jpg" alt="BSNL Bharat Fiber" class="isp-logo">
-            <h3>BSNL Bharat Fiber</h3>
-            <p>The nation's most trusted fiber network. Experience rock-solid stability and high-speed data.</p>
+            <img src="KFON.JPEG" alt="kfon" class="isp-logo">
+            <h3>kfon</h3>
+            <p>KFON Broadband: Kerala’s Own High-Speed Network "Bring home the power of Kerala’s flagship digital infrastructure, delivered straight to your doorstep by MJ Network. KFON offers high-speed, secure, and highly affordable fiber internet designed to bridge the digital divide. Enjoy seamless connectivity for e-governance services, online education, and family entertainment with rock-solid stability."</p>
         </div>
 
         <div class="card">
-            <img src="kfon.jpg" alt="KFON" class="isp-logo">
-            <h3>KFON Broadband</h3>
-            <p>Kerala's flagship digital infrastructure. Secure, affordable, and high-speed internet for all.</p>
+            <img src="BSNL.JPEG" alt="bsnl" class="isp-logo">
+            <h3>bsnl</h3>
+            <p>BSNL Bharat Fiber: The Nation’s Trusted High-Speed Internet "Experience the raw power of India’s largest and most reliable telecom network, brought to your neighborhood by MJ Network. BSNL Bharat Fiber (FTTH) delivers supercharged internet speeds with unmatched network stability. From seamless video conferencing to endless entertainment, connect with the ultimate trust of BSNL."</p>
         </div>
 
     </div>
 </section>
 
-<section id="why-us">
-    <h2>Why Choose MJ Network?</h2>
-    <ul class="features-list">
-        <li>20+ Years Experience</li>
-        <li>Pure FTTH Fiber</li>
-        <li>Instant Local Support</li>
-        <li>Weather-Proof Connection</li>
-    </ul>
-</section>
-
-<div class="contact">
-    <h2>Visit Our Office</h2>
-    <p>📍 EK Building, Pettikkada, Nellikkattiri, Palakkad - 679533</p>
-    <p>📞 9447855342 | ✉️ pcvkizhayoor@gmail.com</p>
+<div id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>EK Building, Pettikkada, Nellikkattiri, Palakkad - 679533</p>
+    <p>9447855342 | pcvkizhayoor@gmail.com</p>
 </div>
 
-<a class="whatsapp" href="https://wa.me/919447855342" target="_blank">
-    <span>💬 WhatsApp Us</span>
-</a>
+<a class="whatsapp" href="https://wa.me/919447855342" target="_blank">💬 WhatsApp Us</a>
 
 <footer>
-    &copy; 2026 MJ Cable Network. All Rights Reserved.
+    © 2026 MJ Cable Network. All Rights Reserved.
 </footer>
 
 </body>
