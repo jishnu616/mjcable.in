@@ -3,335 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MJ Cable Network | Premium Digital Hub</title>
-    
+    <title>MJ Cable Network | Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-
     <style>
-        :root {
-            --primary: #003366;
-            --accent: #e59441;
-            --sky: #5ba8d1;
-            --white: #ffffff;
-            --dark: #111827;
-            --gray-bg: #f9fafb;
-        }
-
+        :root { --primary: #003366; --accent: #e59441; --white: #ffffff; --light: #f9fafb; }
         * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Public Sans', sans-serif; margin: 0; background: var(--light); color: #1f2937; line-height: 1.7; }
+        
+        nav { background: var(--white); padding: 15px 20px; display: flex; justify-content: center; gap: 40px; position: sticky; top: 0; z-index: 2000; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
+        nav a { text-decoration: none; color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; }
+        
+        header { background: linear-gradient(135deg, #001f3f 0%, #004080 100%); padding: 60px 20px; text-align: center; border-bottom: 6px solid var(--accent); }
+        .main-logo { width: 480px; max-width: 90%; height: auto; }
 
-        body {
-            font-family: 'Public Sans', sans-serif;
-            margin: 0; padding: 0;
-            background: var(--gray-bg);
-            color: #1f2937;
-            line-height: 1.7; /* Optimized for reading */
-        }
+        section { padding: 80px 20px; max-width: 1100px; margin: auto; }
+        h2 { text-align: center; color: var(--primary); text-transform: uppercase; font-weight: 800; }
+        h2::after { content: ''; display: block; width: 50px; height: 4px; background: var(--accent); margin: 10px auto; }
 
-        /* Navigation */
-        nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(5px);
-            padding: 15px 20px;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            position: sticky;
-            top: 0;
-            z-index: 2000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #001f3f 0%, #004080 100%);
-            padding: 80px 20px;
-            text-align: center;
-            border-bottom: 6px solid var(--accent);
-        }
-
-        .main-logo {
-            width: 480px; /* Wide logo */
-            max-width: 90%;
-            height: auto;
-            filter: drop-shadow(0 8px 12px rgba(0,0,0,0.2));
-        }
-
-        /* Section Styling */
-        section { padding: 80px 20px; max-width: 1200px; margin: auto; }
-
-        h2 {
-            text-align: center;
-            color: var(--primary);
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-        }
-
-        h2::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background: var(--accent);
-            margin: 10px auto;
-        }
-
-        /* Justified Text Layouts */
-        .content-box, .card p {
-            text-align: justify;
-            text-justify: inter-word;
-        }
-
-        /* About Section (White) */
-        #about { background: var(--white); }
-        .content-box { max-width: 900px; margin: auto; }
-
-        /* Digital TV (Soft Blue) */
-        #digital-tv { background: #f0f7ff; }
-
-        /* Internet Services (White) */
-        #internet-services { background: var(--white); }
-
-        .card-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            width: 100%;
-            max-width: 350px;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .isp-logo {
-            height: 100px; /* Enlarged logos */
-            width: auto;
-            margin: 0 auto 25px;
-            display: block;
-            transition: transform 0.4s;
-        }
-
-        .card:hover .isp-logo { transform: scale(1.1); }
-
-        /* Forms Section (Light Gray) */
-        #support { background: #f3f4f6; }
-        .forms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .form-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
-
-        input, textarea, select {
-            width: 100%; padding: 12px; margin-bottom: 15px;
-            border: 1px solid #d1d5db; border-radius: 8px;
-            font-family: inherit; font-size: 0.95rem;
-        }
-
-        /* Maps Interaction */
-        .map-selector {
-            background: #e5e7eb;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .map-btn {
-            background: #4285F4;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 0.85rem;
-        }
-
-        .submit-btn {
-            width: 100%; padding: 15px; border: none; border-radius: 8px;
-            font-weight: 700; cursor: pointer; text-transform: uppercase;
-        }
-
-        .btn-enquiry { background: var(--accent); color: white; }
-        .btn-complaint { background: #dc2626; color: white; }
-
-        .contact { background: var(--dark); color: white; text-align: center; padding: 60px 20px; }
-
-        .whatsapp {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #22c55e;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            z-index: 1000;
-            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
-        }
+        .about-box { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: justify; }
+        
+        .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; }
+        .card { background: white; padding: 35px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 340px; text-align: center; transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        .card img { height: 90px; margin-bottom: 20px; object-fit: contain; }
+        .card p { text-align: justify; font-size: 0.9rem; }
 
         footer { background: #000; color: #9ca3af; text-align: center; padding: 25px; font-size: 0.85rem; }
-
-        @media (max-width: 600px) {
-            .main-logo { width: 320px; }
-            nav { gap: 15px; font-size: 0.7rem; }
-        }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="support.html">Apply / Complaints</a>
+    </nav>
+    <header><img src="logo.jpg" class="main-logo"></header>
 
-<nav>
-    <a href="#about">About</a>
-    <a href="#digital-tv">Digital TV</a>
-    <a href="#internet-services">Internet</a>
-    <a href="#support">Support</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<header>
-    <img src="logo.jpg" alt="MJ Cable Network" class="main-logo">
-</header>
-
-<section id="about">
-    <h2>About MJ Cable Network</h2>
-    <div class="content-box">
-        <p>With over 20 years of rich experience in the media and entertainment industry, MJ Cable Network has grown from a humble local cable provider into a modern digital hub. Based proudly in Nellikkattiri, Palakkad district, we have spent the last two decades keeping our community informed, entertained, and connected. What started as a mission to deliver clear TV signals to local households has now evolved into a state-of-the-art network infrastructure. Today, we don't just bring you premium digital television through Kerala Vision Digital TV, but we also power local homes, businesses, and schools with high-speed fiber internet through India’s top broadband providers like Kerala Vision Broadband, BSNL Bharat Fiber, and KFON.</p>
-    </div>
-</section>
-
-<section id="digital-tv">
-    <h2>Digital TV</h2>
-    <div class="card-container">
-        <div class="card">
-            <img src="digitaltv.jpg" alt="Digital TV" class="isp-logo">
-            <h3>Kerala Vision Digital TV</h3>
-            <p>With MJ Cable Network, bring home the ultimate entertainment experience. Get over 300+ Kerala Vision HD and digital channels with absolute clarity. Thanks to our pure fiber-optic network (FTTH/FTTP), your television and high-speed broadband will run seamlessly 24/7, no matter the weather.</p>
+    <section id="about">
+        <h2>About MJ Cable Network</h2>
+        <div class="about-box">
+            <p>With over 20 years of rich experience in the media and entertainment industry, MJ Cable Network has grown from a humble local cable provider into a modern digital hub. Based proudly in Nellikkattiri, Palakkad district, we have spent the last two decades keeping our community informed, entertained, and connected. What started as a mission to deliver clear TV signals to local households has now evolved into a state-of-the-art network infrastructure. Today, we don't just bring you premium digital television through Kerala Vision Digital TV, but we also power local homes, businesses, and schools with high-speed fiber internet through India’s top broadband providers like Kerala Vision Broadband, BSNL Bharat Fiber, and KFON.</p>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="internet-services">
-    <h2>IN Internet Services</h2>
-    <div class="card-container">
-        <div class="card">
-            <img src="keralavision.jpg" alt="Kerala Vision" class="isp-logo">
-            <h3>Kerala Vision Broadband</h3>
-            <p>Blazing-Fast Internet with Kerala Vision Broadband "Connect to India's 6th largest internet service provider, brought directly to your home by MJ Network. Experience ultra-fast, seamless streaming, lag-free online gaming, and uninterrupted work-from-home sessions. With unlimited data packages and pure fiber-optic technology, we keep your home running at full speed."</p>
-        </div>
-        <div class="card">
-            <img src="kfon.jpg" alt="kfon" class="isp-logo">
-            <h3>KFON</h3>
-            <p>KFON Broadband: Kerala’s Own High-Speed Network "Bring home the power of Kerala’s flagship digital infrastructure, delivered straight to your doorstep by MJ Network. KFON offers high-speed, secure, and highly affordable fiber internet designed to bridge the digital divide. Enjoy seamless connectivity for e-governance services, online education, and family entertainment with rock-solid stability."</p>
-        </div>
-        <div class="card">
-            <img src="bsnl.jpg" alt="bsnl" class="isp-logo">
-            <h3>BSNL</h3>
-            <p>BSNL Bharat Fiber: The Nation’s Trusted High-Speed Internet "Experience the raw power of India’s largest and most reliable telecom network, brought to your neighborhood by MJ Network. BSNL Bharat Fiber (FTTH) delivers supercharged internet speeds with unmatched network stability. From seamless video conferencing to endless entertainment, connect with the ultimate trust of BSNL."</p>
-        </div>
-    </div>
-</section>
-
-<section id="support">
-    <h2>Support & Applications</h2>
-    <div class="forms-grid">
-        
-        <div class="form-card">
-            <h3>New Connection</h3>
-            <label>Full Name</label>
-            <input type="text" id="regName" placeholder="Enter Name">
-            <label>Mobile Number</label>
-            <input type="tel" id="regPhone" placeholder="Enter Phone">
-            <label>Address</label>
-            <textarea id="regAddress" rows="2" placeholder="Enter Address"></textarea>
-            
-            <div class="map-selector">
-                <p style="font-size: 0.8rem; margin-top:0;">Pin your home on Google Maps:</p>
-                <a href="https://www.google.com/maps" target="_blank" class="map-btn">📍 Open Map & Copy Link</a>
-                <input type="text" id="regMap" placeholder="Paste Map Link Here" style="margin-top:10px;">
+    <section id="digital-tv" style="background: #f0f7ff; max-width: 100%;">
+        <div style="max-width: 1100px; margin: auto;">
+            <h2>Digital TV</h2>
+            <div class="card-container">
+                <div class="card" style="max-width: 600px;">
+                    <img src="digitaltv.jpg">
+                    <h3>Kerala Vision Digital TV</h3>
+                    <p>With MJ Cable Network, bring home the ultimate entertainment experience. Get over 300+ Kerala Vision HD and digital channels with absolute clarity. Thanks to our pure fiber-optic network (FTTH/FTTP), your television and high-speed broadband will run seamlessly 24/7, no matter the weather.</p>
+                </div>
             </div>
-
-            <button class="submit-btn btn-enquiry" onclick="sendEnquiry()">Apply via WhatsApp</button>
         </div>
+    </section>
 
-        <div class="form-card">
-            <h3>Register Complaint</h3>
-            <label>Full Name</label>
-            <input type="text" id="compName" placeholder="Enter Name">
-            <label>Customer Number</label>
-            <input type="text" id="compID" placeholder="ID or Box No">
-            <label>Mobile Number</label>
-            <input type="tel" id="compPhone" placeholder="Registered Phone">
-            <label>Address</label>
-            <textarea id="compAddress" rows="2" placeholder="Enter Address"></textarea>
-            <button class="submit-btn btn-complaint" onclick="sendComplaint()">Register via WhatsApp</button>
+    <section id="internet">
+        <h2>Internet Services</h2>
+        <div class="card-container">
+            <div class="card"><img src="keralavision.jpg"><h3>Kerala Vision</h3><p>Blazing-Fast Internet with Kerala Vision Broadband "Connect to India's 6th largest internet service provider, brought directly to your home by MJ Network. Experience ultra-fast, seamless streaming, lag-free online gaming, and uninterrupted work-from-home sessions. With unlimited data packages and pure fiber-optic technology, we keep your home running at full speed."</p></div>
+            <div class="card"><img src="kfon.jpg"><h3>KFON</h3><p>KFON Broadband: Kerala’s Own High-Speed Network "Bring home the power of Kerala’s flagship digital infrastructure, delivered straight to your doorstep by MJ Network. KFON offers high-speed, secure, and highly affordable fiber internet designed to bridge the digital divide. Enjoy seamless connectivity for e-governance services, online education, and family entertainment with rock-solid stability."</p></div>
+            <div class="card"><img src="bsnl.jpg"><h3>BSNL</h3><p>BSNL Bharat Fiber: The Nation’s Trusted High-Speed Internet "Experience the raw power of India’s largest and most reliable telecom network, brought to your neighborhood by MJ Network. BSNL Bharat Fiber (FTTH) delivers supercharged internet speeds with unmatched network stability. From seamless video conferencing to endless entertainment, connect with the ultimate trust of BSNL."</p></div>
         </div>
+    </section>
 
-    </div>
-</section>
-
-<div id="contact" class="contact">
-    <p>📍 EK Building, Pettikkada, Nellikkattiri, Palakkad - 679533</p>
-    <p>9447855342 | pcvkizhayoor@gmail.com</p>
-</div>
-
-<a class="whatsapp" href="https://wa.me/919447855342" target="_blank">💬 Chat with Us</a>
-
-<footer>
-    © 2026 MJ Cable Network. All Rights Reserved.
-</footer>
-
-<script>
-    function sendEnquiry() {
-        const n = document.getElementById('regName').value;
-        const p = document.getElementById('regPhone').value;
-        const a = document.getElementById('regAddress').value;
-        const m = document.getElementById('regMap').value;
-        if(!n || !p || !a) { alert("Fill all fields"); return; }
-        const msg = `*NEW CONNECTION*%0AName: ${n}%0APhone: ${p}%0AAddress: ${a}%0ALocation: ${m}`;
-        window.open(`https://wa.me/919447855342?text=${msg}`, '_blank');
-    }
-
-    function sendComplaint() {
-        const n = document.getElementById('compName').value;
-        const i = document.getElementById('compID').value;
-        const p = document.getElementById('compPhone').value;
-        const a = document.getElementById('compAddress').value;
-        if(!n || !i || !p) { alert("Fill all fields"); return; }
-        const msg = `*COMPLAINT*%0AName: ${n}%0ACustomerID: ${i}%0APhone: ${p}%0AAddress: ${a}`;
-        window.open(`https://wa.me/919447855342?text=${msg}`, '_blank');
-    }
-</script>
-
+    <footer>© 2026 MJ Cable Network. All Rights Reserved.</footer>
 </body>
 </html>
