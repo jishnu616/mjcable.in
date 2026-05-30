@@ -19,8 +19,13 @@
         .about-box { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: justify; }
         .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; }
         .card { background: white; padding: 35px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 340px; text-align: center; }
+        
+        /* Enlarged Digital TV Image Style */
+        .tv-card { max-width: 800px !important; }
+        .tv-card img { height: 250px !important; margin-bottom: 30px; object-fit: contain; }
+        
         .card img { height: 90px; margin-bottom: 20px; object-fit: contain; }
-        .card p { text-align: justify; font-size: 0.9rem; }
+        .card p { text-align: justify; font-size: 0.95rem; }
         footer { background: #000; color: #9ca3af; text-align: center; padding: 25px; font-size: 0.85rem; }
     </style>
 </head>
@@ -40,7 +45,7 @@
         <div style="max-width: 1100px; margin: auto;">
             <h2>Digital TV</h2>
             <div class="card-container">
-                <div class="card" style="max-width: 600px;">
+                <div class="card tv-card">
                     <img src="digitaltv.jpg" alt="Digital TV">
                     <h3>Kerala Vision Digital TV</h3>
                     <p>With MJ Cable Network, bring home the ultimate entertainment experience. Get over 300+ Kerala Vision HD and digital channels with absolute clarity. Thanks to our pure fiber-optic network (FTTH/FTTP), your television and high-speed broadband will run seamlessly 24/7, no matter the weather.</p>
