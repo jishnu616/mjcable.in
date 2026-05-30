@@ -9,7 +9,6 @@
 
     <style>
         :root {
-            /* Colors matched to your MJ Logo */
             --primary-blue: #5ba8d1; 
             --accent-orange: #e59441;
             --dark-navy: #002244;
@@ -17,21 +16,16 @@
             --white: #ffffff;
         }
 
-        * {
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
+        * { box-sizing: border-box; transition: all 0.3s ease; }
 
         body {
             font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             background: var(--light-bg);
             color: #333;
             line-height: 1.6;
         }
 
-        /* Hero Section */
         header {
             background: linear-gradient(135deg, var(--dark-navy) 0%, #004080 100%);
             color: white;
@@ -40,24 +34,16 @@
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
         }
 
-        .logo-container {
-            margin-bottom: 15px;
-        }
-
         .main-logo {
-            max-width: 300px;
+            max-width: 280px;
             height: auto;
-            /* Makes the logo pop against the dark background */
             filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.3));
         }
 
         header p {
             font-size: 1.2rem;
             font-weight: 300;
-            letter-spacing: 1px;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 10px auto 0;
+            margin: 15px auto 0;
         }
 
         section {
@@ -80,38 +66,50 @@
             height: 4px;
             background: var(--accent-orange);
             margin: 10px auto;
-            border-radius: 2px;
         }
 
-        /* Service Cards */
+        /* ISP Service Cards */
         .card-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
         }
 
         .card {
             background: var(--white);
-            padding: 35px 25px;
+            padding: 30px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--primary-blue);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            border-top: 5px solid var(--accent-orange);
+        }
+
+        .isp-logo {
+            height: 80px; /* Fixed height for uniformity */
+            width: auto;
+            margin-bottom: 20px;
+            object-fit: contain;
         }
 
         .card h3 {
             color: var(--dark-navy);
-            margin-bottom: 15px;
-            font-size: 1.4rem;
+            margin: 10px 0;
+            font-size: 1.3rem;
         }
 
-        /* Features List */
+        .card p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Features */
         .features-list {
             display: flex;
             flex-wrap: wrap;
@@ -123,23 +121,12 @@
 
         .features-list li {
             background: var(--white);
-            padding: 15px 25px;
+            padding: 12px 20px;
             border-radius: 50px;
             font-weight: 600;
-            color: var(--dark-navy);
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: center;
         }
 
-        .features-list li::before {
-            content: '✓';
-            color: var(--accent-orange);
-            margin-right: 10px;
-            font-weight: bold;
-        }
-
-        /* Contact Section */
         .contact {
             background: var(--dark-navy);
             color: white;
@@ -148,11 +135,6 @@
             border-radius: 60px 60px 0 0;
         }
 
-        .contact h2 { color: white; }
-        .contact p { font-size: 1.1rem; margin: 10px 0; }
-        .info-box { margin-top: 30px; }
-
-        /* Floating WhatsApp */
         .whatsapp {
             position: fixed;
             bottom: 30px;
@@ -163,15 +145,8 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             z-index: 1000;
-        }
-
-        .whatsapp:hover {
-            transform: scale(1.05);
-            background: #20ba5a;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         footer {
@@ -179,73 +154,64 @@
             color: #888;
             text-align: center;
             padding: 20px;
-            font-size: 0.9rem;
         }
 
-        /* Mobile Adjustments */
         @media (max-width: 600px) {
-            header { padding: 40px 15px 80px; }
-            .main-logo { max-width: 220px; }
-            h2 { font-size: 1.8rem; }
+            .main-logo { max-width: 200px; }
+            .isp-logo { height: 60px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-container">
-        <img src="logo.jpg" alt="MJ Cable Network Logo" class="main-logo">
-    </div>
+    <img src="logo.jpg" alt="MJ Cable Network" class="main-logo">
     <p>Premium Digital TV & Ultra-Fast Fiber Broadband</p>
 </header>
 
-<section id="about">
-    <h2>20 Years of Trust</h2>
-    <p style="text-align: center; max-width: 800px; margin: auto; font-size: 1.1rem;">
-        Based in <strong>Nellikkattiri, Palakkad</strong>, MJ Cable Network has evolved from a local provider into a modern digital hub. We deliver high-speed connectivity and premium entertainment to homes, businesses, and schools across the region.
-    </p>
-</section>
-
 <section id="services">
-    <h2>Our Services</h2>
+    <h2>Our Connectivity Partners</h2>
     <div class="card-container">
+        
         <div class="card">
-            <h3>Kerala Vision TV</h3>
-            <p>Experience 300+ Digital and HD channels with crystal-clear quality via our robust fiber network.</p>
+            <img src="keralavision.jpg" alt="Kerala Vision" class="isp-logo">
+            <h3>Kerala Vision</h3>
+            <p>High-speed broadband and 300+ Digital TV channels. Reliable entertainment and internet for every home.</p>
         </div>
+
         <div class="card">
-            <h3>High-Speed Fiber</h3>
-            <p>Seamless internet from India's top providers: <strong>Kerala Vision, BSNL Bharat Fiber, and KFON.</strong></p>
+            <img src="bsnl.jpg" alt="BSNL Bharat Fiber" class="isp-logo">
+            <h3>BSNL Bharat Fiber</h3>
+            <p>The nation's most trusted fiber network. Experience rock-solid stability and high-speed data.</p>
         </div>
+
         <div class="card">
-            <h3>Local Support</h3>
-            <p>Dedicated local technicians ensuring 24/7 uptime and rapid resolution for all your connectivity needs.</p>
+            <img src="kfon.jpg" alt="KFON" class="isp-logo">
+            <h3>KFON Broadband</h3>
+            <p>Kerala's flagship digital infrastructure. Secure, affordable, and high-speed internet for all.</p>
         </div>
+
     </div>
 </section>
 
 <section id="why-us">
-    <h2>Why Choose Us?</h2>
+    <h2>Why Choose MJ Network?</h2>
     <ul class="features-list">
         <li>20+ Years Experience</li>
         <li>Pure FTTH Fiber</li>
-        <li>Weather-Proof Signal</li>
-        <li>Affordable Plans</li>
         <li>Instant Local Support</li>
+        <li>Weather-Proof Connection</li>
     </ul>
 </section>
 
 <div class="contact">
-    <h2>Contact Our Office</h2>
-    <div class="info-box">
-        <p>📍 EK Building, Pettikkada, Nellikkattiri, Palakkad - 679533</p>
-        <p>📞 <strong>9447855342</strong></p>
-        <p>✉️ pcvkizhayoor@gmail.com</p>
-    </div>
+    <h2>Visit Our Office</h2>
+    <p>📍 EK Building, Pettikkada, Nellikkattiri, Palakkad - 679533</p>
+    <p>📞 9447855342 | ✉️ pcvkizhayoor@gmail.com</p>
 </div>
 
 <a class="whatsapp" href="https://wa.me/919447855342" target="_blank">
-    <span>💬 Chat on WhatsApp</span>
+    <span>💬 WhatsApp Us</span>
 </a>
 
 <footer>
