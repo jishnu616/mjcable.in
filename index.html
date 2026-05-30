@@ -31,7 +31,7 @@
             padding: 15px 20px;
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             position: sticky;
             top: 0;
             z-index: 2000;
@@ -43,7 +43,7 @@
             color: var(--dark-navy);
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         header {
@@ -116,17 +116,59 @@
             margin-right: auto;
         }
 
-        .card h3 {
-            color: var(--dark-navy);
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+        /* Form Layout Grid */
+        .forms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
         }
 
-        .card p {
-            font-size: 0.9rem;
-            color: #555;
-            text-align: justify;
+        .form-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: left;
         }
+
+        .form-card h3 {
+            color: var(--dark-navy);
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--light-bg);
+            padding-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-enquiry { background: var(--accent-orange); color: white; }
+        .btn-complaint { background: #e74c3c; color: white; }
 
         .contact {
             background: var(--dark-navy);
@@ -155,6 +197,11 @@
             text-align: center;
             padding: 20px;
         }
+
+        @media (max-width: 600px) {
+            nav { gap: 10px; }
+            nav a { font-size: 0.7rem; }
+        }
     </style>
 </head>
 <body>
@@ -162,7 +209,8 @@
 <nav>
     <a href="#about">About Us</a>
     <a href="#digital-tv">Digital TV</a>
-    <a href="#internet-services">Internet Services</a>
+    <a href="#internet-services">Internet</a>
+    <a href="#support">Support/Apply</a>
     <a href="#contact">Contact</a>
 </nav>
 
@@ -191,23 +239,52 @@
 <section id="internet-services">
     <h2>IN internet services</h2>
     <div class="card-container">
-        
         <div class="card">
             <img src="keralavision.jpg" alt="KERALA VISION" class="isp-logo">
             <h3>KERALA VISION BROADBAND</h3>
             <p>Blazing-Fast Internet with Kerala Vision Broadband "Connect to India's 6th largest internet service provider, brought directly to your home by MJ Network. Experience ultra-fast, seamless streaming, lag-free online gaming, and uninterrupted work-from-home sessions. With unlimited data packages and pure fiber-optic technology, we keep your home running at full speed."</p>
         </div>
-
         <div class="card">
             <img src="kfon.jpg" alt="kfon" class="isp-logo">
             <h3>kfon</h3>
             <p>KFON Broadband: Kerala’s Own High-Speed Network "Bring home the power of Kerala’s flagship digital infrastructure, delivered straight to your doorstep by MJ Network. KFON offers high-speed, secure, and highly affordable fiber internet designed to bridge the digital divide. Enjoy seamless connectivity for e-governance services, online education, and family entertainment with rock-solid stability."</p>
         </div>
-
         <div class="card">
             <img src="bsnl.jpg" alt="bsnl" class="isp-logo">
             <h3>bsnl</h3>
             <p>BSNL Bharat Fiber: The Nation’s Trusted High-Speed Internet "Experience the raw power of India’s largest and most reliable telecom network, brought to your neighborhood by MJ Network. BSNL Bharat Fiber (FTTH) delivers supercharged internet speeds with unmatched network stability. From seamless video conferencing to endless entertainment, connect with the ultimate trust of BSNL."</p>
+        </div>
+    </div>
+</section>
+
+<section id="support">
+    <h2>Support & Applications</h2>
+    <div class="forms-grid">
+        
+        <div class="form-card">
+            <h3>New Connection</h3>
+            <label>Name</label>
+            <input type="text" id="regName" placeholder="Full Name">
+            <label>Mobile Number</label>
+            <input type="tel" id="regPhone" placeholder="Mobile Number">
+            <label>Address</label>
+            <textarea id="regAddress" rows="2" placeholder="Full Address"></textarea>
+            <label>Location (Google Maps Link)</label>
+            <input type="text" id="regMap" placeholder="Paste link here">
+            <button class="submit-btn btn-enquiry" onclick="sendEnquiry()">Apply via WhatsApp</button>
+        </div>
+
+        <div class="form-card">
+            <h3>Register Complaint</h3>
+            <label>Name</label>
+            <input type="text" id="compName" placeholder="Full Name">
+            <label>Customer Number</label>
+            <input type="text" id="compID" placeholder="Customer ID / Box No">
+            <label>Mobile Number</label>
+            <input type="tel" id="compPhone" placeholder="Registered Mobile No">
+            <label>Address</label>
+            <textarea id="compAddress" rows="2" placeholder="Full Address"></textarea>
+            <button class="submit-btn btn-complaint" onclick="sendComplaint()">Register via WhatsApp</button>
         </div>
 
     </div>
@@ -224,6 +301,34 @@
 <footer>
     © 2026 MJ Cable Network. All Rights Reserved.
 </footer>
+
+<script>
+    function sendEnquiry() {
+        const name = document.getElementById('regName').value;
+        const phone = document.getElementById('regPhone').value;
+        const address = document.getElementById('regAddress').value;
+        const map = document.getElementById('regMap').value;
+
+        if(!name || !phone || !address) { alert("Please fill Name, Phone and Address"); return; }
+
+        const msg = `*NEW CONNECTION ENQUIRY*%0A` +
+                    `Name: ${name}%0ANumber: ${phone}%0AAddress: ${address}%0ALocation: ${map}`;
+        window.open(`https://wa.me/919447855342?text=${msg}`, '_blank');
+    }
+
+    function sendComplaint() {
+        const name = document.getElementById('compName').value;
+        const cid = document.getElementById('compID').value;
+        const phone = document.getElementById('compPhone').value;
+        const address = document.getElementById('compAddress').value;
+
+        if(!name || !cid || !phone) { alert("Please fill Name, Customer No and Phone"); return; }
+
+        const msg = `*TECHNICAL COMPLAINT*%0A` +
+                    `Name: ${name}%0ACustomer No: ${cid}%0ANumber: ${phone}%0AAddress: ${address}`;
+        window.open(`https://wa.me/919447855342?text=${msg}`, '_blank');
+    }
+</script>
 
 </body>
 </html>
