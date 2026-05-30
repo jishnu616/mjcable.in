@@ -90,8 +90,9 @@
         }
 
         .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 25px;
         }
 
@@ -101,6 +102,8 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             text-align: center;
+            width: 100%;
+            max-width: 350px;
         }
 
         .isp-logo {
@@ -158,7 +161,8 @@
 
 <nav>
     <a href="#about">About Us</a>
-    <a href="#internet-services">Products/Services</a>
+    <a href="#digital-tv">Digital TV</a>
+    <a href="#internet-services">Internet Services</a>
     <a href="#contact">Contact</a>
 </nav>
 
@@ -173,16 +177,21 @@
     </div>
 </section>
 
-<section id="internet-services">
-    <h2>IN internet services</h2>
+<section id="digital-tv">
+    <h2>DIGITAL TV</h2>
     <div class="card-container">
-        
         <div class="card">
             <img src="digitaltv.jpg" alt="Digital TV" class="isp-logo">
             <h3>KERALA VISION DIGITAL TV</h3>
             <p>With MJ Cable Network, bring home the ultimate entertainment experience. Get over 300+ Kerala Vision HD and digital channels with absolute clarity. Thanks to our pure fiber-optic network (FTTH/FTTP), your television and high-speed broadband will run seamlessly 24/7, no matter the weather.</p>
         </div>
+    </div>
+</section>
 
+<section id="internet-services">
+    <h2>IN internet services</h2>
+    <div class="card-container">
+        
         <div class="card">
             <img src="keralavision.jpg" alt="KERALA VISION" class="isp-logo">
             <h3>KERALA VISION BROADBAND</h3>
