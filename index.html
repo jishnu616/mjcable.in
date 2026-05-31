@@ -9,8 +9,8 @@
 
     <style>
         :root {
-            --slate-bg: #1e293b;            /* Deep Slate background */
-            --panel-bg: #334155;            /* Lighter Steel panel color */
+            --slate-bg: #1e293b;            
+            --panel-bg: #334155;            
             --emperia-cyan: #00f3ff;        
             --text-light: #f8fafc;          
             --text-muted: #cbd5e1;          
@@ -23,8 +23,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0; padding: 0;
             background-color: var(--slate-bg);
-            /* Lightened the overlay so the image is clearer */
-            background-image: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.85)), url('entertainment.jpg');
+            background-image: linear-gradient(rgba(30, 41, 59, 0.88), rgba(30, 41, 59, 0.88)), url('entertainment.jpg');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
@@ -32,17 +31,9 @@
             line-height: 1.7;
         }
 
-        /* --- LOADING ANIMATIONS --- */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-hero { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
-
         /* --- NAVIGATION --- */
         nav {
-            background: rgba(51, 65, 85, 0.9);
+            background: rgba(51, 65, 85, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 20px;
             display: flex;
@@ -65,15 +56,22 @@
 
         nav a:hover { color: var(--emperia-cyan); }
 
-        /* --- HEADER --- */
+        /* --- WIDE LOGO HEADER --- */
         header {
             background: rgba(30, 41, 59, 0.6);
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
             border-bottom: 4px solid var(--accent-orange);
         }
 
-        .main-logo { width: 480px; max-width: 90%; height: auto; }
+        .main-logo { 
+            width: 580px;      /* Increased width */
+            max-width: 95%;    /* Responsive safety */
+            max-height: 140px; /* Restricts vertical "bigness" */
+            height: auto; 
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px rgba(0, 243, 255, 0.1));
+        }
 
         /* --- CONTENT --- */
         section { padding: 80px 20px; max-width: 1200px; margin: auto; }
@@ -82,7 +80,7 @@
             text-align: center;
             text-transform: uppercase;
             font-weight: 800;
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 20px;
         }
 
@@ -103,6 +101,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: justify;
             color: var(--text-muted);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         /* --- CARDS --- */
@@ -125,14 +124,13 @@
         .card:hover {
             transform: translateY(-5px);
             border-color: var(--emperia-cyan);
-            background: #3e4e63;
         }
 
         .tv-card { grid-column: 1 / -1; max-width: 850px; margin: 0 auto; }
         .tv-card img { height: 220px; margin-bottom: 25px; object-fit: contain; }
 
-        .card img { height: 75px; margin-bottom: 20px; object-fit: contain; }
-        .card h3 { color: var(--text-light); margin-bottom: 15px; }
+        .card img { height: 70px; margin-bottom: 20px; object-fit: contain; }
+        .card h3 { color: var(--text-light); margin-bottom: 15px; font-weight: 700; }
         .card p { text-align: justify; font-size: 0.95rem; color: var(--text-muted); }
 
         footer {
@@ -141,6 +139,11 @@
             text-align: center;
             padding: 25px;
             font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-logo { width: 350px; }
+            header { padding: 40px 15px; }
         }
     </style>
 </head>
@@ -152,7 +155,7 @@
     </nav>
 
     <header>
-        <img src="logo.jpg" class="main-logo animate-hero" alt="MJ Cable Network">
+        <img src="logo.jpg" class="main-logo" alt="MJ Cable Network">
     </header>
 
     <section id="about">
@@ -162,11 +165,11 @@
         </div>
     </section>
 
-    <section id="digital-tv" style="background: rgba(30, 41, 59, 0.4);">
+    <section id="digital-tv" style="background: rgba(30, 41, 59, 0.5);">
         <h2>Digital <span>TV</span></h2>
         <div class="card-container">
             <div class="card tv-card">
-                <img src="digitaltv.jpg">
+                <img src="digitaltv.jpg" alt="Digital TV">
                 <h3>KERALA VISION DIGITAL TV</h3>
                 <p>With MJ Cable Network, bring home the ultimate entertainment experience. Get over 300+ Kerala Vision HD and digital channels with absolute clarity. Thanks to our pure fiber-optic network (FTTH/FTTP), your television and high-speed broadband will run seamlessly 24/7, no matter the weather.</p>
             </div>
@@ -177,17 +180,17 @@
         <h2>Internet <span>Services</span></h2>
         <div class="card-container">
             <div class="card">
-                <img src="keralavision.jpg">
+                <img src="keralavision.jpg" alt="KERALA VISION">
                 <h3>KERALA VISION</h3>
                 <p>Blazing-Fast Internet with Kerala Vision Broadband "Connect to India's 6th largest internet service provider, brought directly to your home by MJ Network. Experience ultra-fast, seamless streaming, lag-free online gaming, and uninterrupted work-from-home sessions."</p>
             </div>
             <div class="card">
-                <img src="kfon.jpg">
+                <img src="kfon.jpg" alt="KFON">
                 <h3>KFON</h3>
                 <p>KFON Broadband: Kerala’s Own High-Speed Network "Bring home the power of Kerala’s flagship digital infrastructure. KFON offers high-speed, secure, and highly affordable fiber internet designed to bridge the digital divide."</p>
             </div>
             <div class="card">
-                <img src="bsnl.jpg">
+                <img src="bsnl.jpg" alt="BSNL">
                 <h3>BSNL</h3>
                 <p>BSNL Bharat Fiber: The Nation’s Trusted High-Speed Internet "Experience the raw power of India’s largest telecom network. BSNL Bharat Fiber delivers supercharged internet speeds with unmatched network stability."</p>
             </div>
