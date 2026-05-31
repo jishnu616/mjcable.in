@@ -56,21 +56,55 @@
 
         nav a:hover { color: var(--emperia-cyan); }
 
-        /* --- WIDE LOGO HEADER --- */
+        /* --- LOGO LEFT / TEXT RIGHT HEADER --- */
         header {
             background: rgba(30, 41, 59, 0.6);
-            padding: 50px 20px;
-            text-align: center;
+            padding: 40px 5%;
+            display: flex;
+            justify-content: center; /* Centers the whole logo block */
+            align-items: center;
             border-bottom: 4px solid var(--accent-orange);
         }
 
+        .header-container {
+            display: flex;
+            align-items: center;
+            gap: 25px; /* Spacing between logo and text */
+            max-width: 1200px;
+        }
+
         .main-logo { 
-            width: 580px;      /* Increased width */
-            max-width: 95%;    /* Responsive safety */
-            max-height: 140px; /* Restricts vertical "bigness" */
+            width: 180px;      /* Fixed size for the graphic icon */
             height: auto; 
             object-fit: contain;
             filter: drop-shadow(0 0 15px rgba(0, 243, 255, 0.1));
+        }
+
+        .logo-text {
+            text-align: left;
+        }
+
+        .logo-text h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        .logo-text span {
+            color: var(--emperia-cyan);
+        }
+
+        .logo-text p {
+            margin: 5px 0 0 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent-orange);
         }
 
         /* --- CONTENT --- */
@@ -118,12 +152,6 @@
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--emperia-cyan);
         }
 
         .tv-card { grid-column: 1 / -1; max-width: 850px; margin: 0 auto; }
@@ -142,8 +170,10 @@
         }
 
         @media (max-width: 768px) {
-            .main-logo { width: 350px; }
-            header { padding: 40px 15px; }
+            .header-container { flex-direction: column; text-align: center; }
+            .logo-text { text-align: center; }
+            .logo-text h1 { font-size: 2rem; }
+            .main-logo { width: 120px; }
         }
     </style>
 </head>
@@ -155,7 +185,13 @@
     </nav>
 
     <header>
-        <img src="logo.jpg" class="main-logo" alt="MJ Cable Network">
+        <div class="header-container">
+            <img src="logo.jpg" class="main-logo" alt="Logo Icon">
+            <div class="logo-text">
+                <h1>MJ <span>NETWORK</span></h1>
+                <p>CABLE NETWORK</p>
+            </div>
+        </div>
     </header>
 
     <section id="about">
