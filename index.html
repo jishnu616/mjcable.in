@@ -61,7 +61,7 @@
             background: rgba(30, 41, 59, 0.6);
             padding: 40px 5%;
             display: flex;
-            justify-content: center; /* Centers the whole logo block */
+            justify-content: center;
             align-items: center;
             border-bottom: 4px solid var(--accent-orange);
         }
@@ -69,12 +69,12 @@
         .header-container {
             display: flex;
             align-items: center;
-            gap: 25px; /* Spacing between logo and text */
+            gap: 25px;
             max-width: 1200px;
         }
 
         .main-logo { 
-            width: 180px;      /* Fixed size for the graphic icon */
+            width: 180px;      
             height: auto; 
             object-fit: contain;
             filter: drop-shadow(0 0 15px rgba(0, 243, 255, 0.1));
@@ -98,13 +98,24 @@
             color: var(--emperia-cyan);
         }
 
-        .logo-text p {
+        .logo-text p.sub-brand {
             margin: 5px 0 0 0;
             font-size: 1.2rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 4px;
             color: var(--accent-orange);
+            line-height: 1.2;
+        }
+
+        .logo-text p.location {
+            margin: 4px 0 0 0;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: var(--text-muted);
+            opacity: 0.9;
         }
 
         /* --- CONTENT --- */
@@ -189,7 +200,8 @@
             <img src="logo.jpg" class="main-logo" alt="Logo Icon">
             <div class="logo-text">
                 <h1>MJ <span>NETWORK</span></h1>
-                <p>CABLE NETWORK</p>
+                <p class="sub-brand">CABLE NETWORK</p>
+                <p class="location">NELLIKKATTIRI</p>
             </div>
         </div>
     </header>
