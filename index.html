@@ -74,110 +74,108 @@
         }
 
         .main-logo { 
-            width: 230px;      /* Increased logo width */
+            width: 230px;      
             height: auto; 
             object-fit: contain;
             filter: drop-shadow(0 0 15px rgba(0, 243, 255, 0.1));
         }
 
-        .logo-text {
-            text-align: left;
-        }
+        .logo-text { text-align: left; }
 
         .logo-text h1 {
-            margin: 0;
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            line-height: 1;
-            text-transform: uppercase;
-            color: var(--text-light);
+            margin: 0; font-size: 3rem; font-weight: 800;
+            letter-spacing: -1px; line-height: 1;
+            text-transform: uppercase; color: var(--text-light);
         }
 
-        .logo-text span {
-            color: var(--emperia-cyan);
-        }
+        .logo-text span { color: var(--emperia-cyan); }
 
         .logo-text p.sub-brand {
-            margin: 5px 0 0 0;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--accent-orange);
-            line-height: 1.2;
+            margin: 5px 0 0 0; font-size: 1.2rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 4px;
+            color: var(--accent-orange); line-height: 1.2;
         }
 
         .logo-text p.location {
-            margin: 4px 0 0 0;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            color: var(--text-muted);
-            opacity: 0.9;
+            margin: 4px 0 0 0; font-size: 0.9rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 6px;
+            color: var(--text-muted); opacity: 0.9;
         }
 
         /* --- CONTENT --- */
         section { padding: 80px 20px; max-width: 1200px; margin: auto; }
 
         h2 {
-            text-align: center;
-            text-transform: uppercase;
-            font-weight: 800;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            text-align: center; text-transform: uppercase;
+            font-weight: 800; font-size: 1.8rem; margin-bottom: 20px;
         }
 
         h2 span { color: var(--emperia-cyan); }
 
         h2::after {
-            content: '';
-            display: block;
-            width: 50px; height: 4px;
-            background: var(--accent-orange);
-            margin: 10px auto;
+            content: ''; display: block; width: 50px; height: 4px;
+            background: var(--accent-orange); margin: 10px auto;
         }
 
         .about-box {
-            background: var(--panel-bg);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: justify;
-            color: var(--text-muted);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: var(--panel-bg); padding: 40px; border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1); text-align: justify;
+            color: var(--text-muted); box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        /* --- CARDS --- */
+        /* --- CARDS & INTERNET GRID --- */
         .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; margin-top: 40px;
         }
 
         .card {
-            background: var(--panel-bg);
-            padding: 35px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
+            background: var(--panel-bg); padding: 35px; border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1); text-align: center;
+            display: flex; flex-direction: column; justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--emperia-cyan);
+            box-shadow: 0 10px 25px rgba(0, 243, 255, 0.1);
+        }
+
+        /* Links styling wrapped around logos and headers */
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .tv-card { grid-column: 1 / -1; max-width: 850px; margin: 0 auto; }
         .tv-card img { height: 220px; margin-bottom: 25px; object-fit: contain; }
 
         .card img { height: 70px; margin-bottom: 20px; object-fit: contain; }
-        .card h3 { color: var(--text-light); margin-bottom: 15px; font-weight: 700; }
-        .card p { text-align: justify; font-size: 0.95rem; color: var(--text-muted); }
+        .card h3 { color: var(--text-light); margin-bottom: 15px; font-weight: 700; transition: color 0.3s; }
+        .card:hover h3 { color: var(--emperia-cyan); }
+        .card p { text-align: justify; font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px; flex-grow: 1; }
+
+        /* Modern Premium Action Button Style */
+        .btn-plans {
+            display: inline-block; width: 100%; padding: 12px;
+            background: transparent; border: 2px solid var(--accent-orange);
+            color: var(--text-light); border-radius: 8px; font-weight: 700;
+            text-transform: uppercase; text-decoration: none; font-size: 0.85rem;
+            letter-spacing: 1px; transition: all 0.3s ease; margin-top: auto;
+        }
+
+        .btn-plans:hover {
+            background: var(--accent-orange);
+            box-shadow: 0 4px 15px rgba(229, 148, 65, 0.4);
+            transform: translateY(-2px);
+        }
 
         footer {
-            background: #0f172a;
-            color: #94a3b8;
-            text-align: center;
-            padding: 25px;
-            font-size: 0.85rem;
+            background: #0f172a; color: #94a3b8; text-align: center;
+            padding: 25px; font-size: 0.85rem;
         }
 
         @media (max-width: 768px) {
@@ -197,7 +195,6 @@
 
     <header>
         <div class="header-container">
-            <!-- Updated Image Filename Verbatim -->
             <img src="mjcablelogo.jpg" class="main-logo" alt="Logo Icon">
             <div class="logo-text">
                 <h1>MJ <span>NETWORK</span></h1>
@@ -228,21 +225,37 @@
     <section id="internet">
         <h2>Internet <span>Services</span></h2>
         <div class="card-container">
+            
+            <!-- KERALA VISION CARD -->
             <div class="card">
-                <img src="keralavision.jpg" alt="KERALA VISION">
-                <h3>KERALA VISION</h3>
+                <a href="https://www.keralavisionisp.com/" target="_blank" class="card-link">
+                    <img src="keralavision.jpg" alt="KERALA VISION">
+                    <h3>KERALA VISION</h3>
+                </a>
                 <p>Blazing-Fast Internet with Kerala Vision Broadband "Connect to India's 6th largest internet service provider, brought directly to your home by MJ Network. Experience ultra-fast, seamless streaming, lag-free online gaming, and uninterrupted work-from-home sessions."</p>
+                <a href="https://www.keralavisionisp.com/broadband-plans" target="_blank" class="btn-plans">Check Plans</a>
             </div>
+            
+            <!-- KFON CARD -->
             <div class="card">
-                <img src="kfon.jpg" alt="KFON">
-                <h3>KFON</h3>
+                <a href="https://www.keralavisionisp.com/" target="_blank" class="card-link">
+                    <img src="kfon.jpg" alt="KFON">
+                    <h3>KFON</h3>
+                </a>
                 <p>KFON Broadband: Kerala’s Own High-Speed Network "Bring home the power of Kerala’s flagship digital infrastructure. KFON offers high-speed, secure, and highly affordable fiber internet designed to bridge the digital divide."</p>
+                <a href="https://kfon.in/plans?prophazecheck=1" target="_blank" class="btn-plans">Check Plans</a>
             </div>
+            
+            <!-- BSNL CARD -->
             <div class="card">
-                <img src="bsnl.jpg" alt="BSNL">
-                <h3>BSNL</h3>
+                <a href="https://bsnl.co.in/broadband/bharatfiber" target="_blank" class="card-link">
+                    <img src="bsnl.jpg" alt="BSNL">
+                    <h3>BSNL</h3>
+                </a>
                 <p>BSNL Bharat Fiber: The Nation’s Trusted High-Speed Internet "Experience the raw power of India’s largest telecom network. BSNL Bharat Fiber delivers supercharged internet speeds with unmatched network stability."</p>
+                <a href="https://bsnl.co.in/broadband/bharatfiber" target="_blank" class="btn-plans">Check Plans</a>
             </div>
+
         </div>
     </section>
 
