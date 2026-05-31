@@ -15,6 +15,7 @@
             --text-light: #f8fafc;          
             --text-muted: #cbd5e1;          
             --accent-orange: #e59441;
+            --pay-green: #22c55e;
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
@@ -31,13 +32,14 @@
             line-height: 1.7;
         }
 
-        /* --- NAVIGATION --- */
+        /* --- STICKY NAVIGATION --- */
         nav {
             background: rgba(51, 65, 85, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 20px;
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 40px;
             position: sticky;
             top: 0;
@@ -55,6 +57,18 @@
         }
 
         nav a:hover { color: var(--emperia-cyan); }
+        
+        nav a.pay-nav-btn {
+            color: var(--pay-green);
+            border: 1px solid var(--pay-green);
+            padding: 6px 14px;
+            border-radius: 6px;
+        }
+        nav a.pay-nav-btn:hover {
+            background: var(--pay-green);
+            color: #0f172a;
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+        }
 
         /* --- HEADER LAYOUT --- */
         header {
@@ -102,7 +116,7 @@
             color: var(--text-muted); opacity: 0.9;
         }
 
-        /* --- CONTENT --- */
+        /* --- CONTENT MAIN LAYOUT --- */
         section { padding: 80px 20px; max-width: 1200px; margin: auto; }
 
         h2 {
@@ -123,7 +137,7 @@
             color: var(--text-muted); box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        /* --- CARDS & INTERNET GRID --- */
+        /* --- CARDS & GRIDS --- */
         .card-container {
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
@@ -143,12 +157,7 @@
             box-shadow: 0 10px 25px rgba(0, 243, 255, 0.1);
         }
 
-        .card-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
+        .card-link { text-decoration: none; color: inherit; display: block; }
         .tv-card { grid-column: 1 / -1; max-width: 850px; margin: 0 auto; }
         .tv-card img { height: 220px; margin-bottom: 25px; object-fit: contain; }
 
@@ -157,15 +166,9 @@
         .card:hover h3 { color: var(--emperia-cyan); }
         .card p { text-align: justify; font-size: 0.95rem; color: var(--text-muted); margin-bottom: 25px; flex-grow: 1; }
 
-        /* Button Layout Group */
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: auto;
-        }
+        /* Button Groups */
+        .button-group { display: flex; flex-direction: column; gap: 12px; margin-top: auto; }
 
-        /* Modern Premium Action Button Styles */
         .btn-plans, .btn-recharge {
             display: inline-block; width: 100%; padding: 12px;
             border-radius: 8px; font-weight: 700;
@@ -173,34 +176,49 @@
             letter-spacing: 1px; transition: all 0.3s ease;
         }
 
-        .btn-plans {
-            background: transparent; border: 2px solid var(--accent-orange);
-            color: var(--text-light);
-        }
-
+        .btn-plans { background: transparent; border: 2px solid var(--accent-orange); color: var(--text-light); }
         .btn-plans:hover {
             background: var(--accent-orange);
             box-shadow: 0 4px 15px rgba(229, 148, 65, 0.4);
             transform: translateY(-2px);
         }
 
-        .btn-recharge {
-            background: transparent; border: 2px solid var(--emperia-cyan);
-            color: var(--text-light);
-        }
-
+        .btn-recharge { background: transparent; border: 2px solid var(--emperia-cyan); color: var(--text-light); }
         .btn-recharge:hover {
-            background: var(--emperia-cyan);
-            color: #0f172a;
+            background: var(--emperia-cyan); color: #0f172a;
             box-shadow: 0 4px 15px rgba(0, 243, 255, 0.4);
             transform: translateY(-2px);
         }
 
-        footer {
-            background: #0f172a; color: #94a3b8; text-align: center;
-            padding: 25px; font-size: 0.85rem;
+        /* --- SUPPORT COMPLAINT GRID LAYOUT --- */
+        .grid-support { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        
+        input, textarea {
+            width: 100%; padding: 12px; margin-bottom: 15px;
+            background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px; color: white; font-family: inherit;
         }
 
+        input:focus, textarea:focus { outline: none; border-color: var(--emperia-cyan); }
+        
+        .action-submit-btn { 
+            width: 100%; padding: 14px; border: none; border-radius: 8px; 
+            font-weight: 700; color: white; cursor: pointer; text-transform: uppercase; 
+            transition: 0.2s;
+        }
+        .action-submit-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+        .btn-reg { background: var(--accent-orange); }
+        .btn-comp { background: #dc2626; }
+        
+        .contact-box { 
+            background: #0f172a; color: white; text-align: center; 
+            padding: 40px 20px; margin-top: 40px; border-radius: 20px; 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+        }
+
+        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 25px; font-size: 0.85rem; }
+
+        @media (max-width: 900px) { nav { gap: 20px; flex-wrap: wrap; } }
         @media (max-width: 768px) {
             .header-container { flex-direction: column; text-align: center; }
             .logo-text { text-align: center; }
@@ -211,9 +229,12 @@
 </head>
 <body>
 
+    <!-- Simplified Single-Page Anchor Navigation -->
     <nav>
-        <a href="index.html">Home</a>
-        <a href="support.html">Register-Complaints/ New connection</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#support">Complaints & New Connections</a>
+        <a href="https://wa.me/919447855342?text=*BILL%20PAYMENT*%0AHello%2C%20I%20would%20like%20to%20pay%20my%20monthly%20subscription%20bill.%20Please%20send%20me%20the%20payment%20link%20or%20QR%20code." target="_blank" class="pay-nav-btn">Pay Now</a>
     </nav>
 
     <header>
@@ -227,6 +248,7 @@
         </div>
     </header>
 
+    <!-- ABOUT SECTION -->
     <section id="about">
         <h2>About <span>Us</span></h2>
         <div class="about-box">
@@ -234,63 +256,104 @@
         </div>
     </section>
 
-    <section id="digital-tv" style="background: rgba(30, 41, 59, 0.5);">
-        <h2>Digital <span>TV</span></h2>
-        <div class="card-container">
-            <div class="card tv-card">
-                <a href="https://www.kccl.tv/service.html" target="_blank" class="card-link">
-                    <img src="digitaltv.jpg" alt="Digital TV">
-                    <h3>KERALA VISION DIGITAL TV</h3>
-                </a>
-                <p>With MJ Cable Network, bring home the ultimate entertainment experience. Get over 300+ Kerala Vision HD and digital channels with absolute clarity. Thanks to our pure fiber-optic network (FTTH/FTTP), your television and high-speed broadband will run seamlessly 24/7, no matter the weather.</p>
+    <!-- SERVICES ID WRAPPER -->
+    <div id="services">
+        <!-- DIGITAL TV HOUSING -->
+        <section id="digital-tv" style="background: rgba(30, 41, 59, 0.5); max-width: 100%;">
+            <div style="max-width: 1200px; margin: auto; padding: 0 20px;">
+                <h2>Digital <span>TV</span></h2>
+                <div class="card-container">
+                    <div class="card tv-card">
+                        <a href="https://www.kccl.tv/service.html" target="_blank" class="card-link">
+                            <img src="digitaltv.jpg" alt="Digital TV">
+                            <h3>KERALA VISION DIGITAL TV</h3>
+                        </a>
+                        <p>With MJ Cable Network, bring home the ultimate entertainment experience. Get over 300+ Kerala Vision HD and digital channels with absolute clarity. Thanks to our pure fiber-optic network (FTTH/FTTP), your television and high-speed broadband will run seamlessly 24/7, no matter the weather.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="internet">
-        <h2>Internet <span>Services</span></h2>
-        <div class="card-container">
-            
-            <!-- KERALA VISION CARD -->
-            <div class="card">
-                <a href="https://www.keralavisionisp.com/" target="_blank" class="card-link">
-                    <img src="keralavision.jpg" alt="KERALA VISION">
-                    <h3>KERALA VISION</h3>
-                </a>
-                <p>Blazing-Fast Internet with Kerala Vision Broadband "Connect to India's 5th largest internet service provider, brought directly to your home by MJ Network. Experience ultra-fast, seamless streaming, lag-free online gaming, and uninterrupted work-from-home sessions."</p>
-                <div class="button-group">
-                    <a href="https://www.keralavisionisp.com/broadband-plans" target="_blank" class="btn-plans">Check Plans</a>
-                    <a href="https://selfcare.keralavisionisp.com/#/login" target="_blank" class="btn-recharge">Recharge Online</a>
+        <!-- BROADBAND HOUSING -->
+        <section id="internet">
+            <h2>Internet <span>Services</span></h2>
+            <div class="card-container">
+                
+                <!-- KERALA VISION CARD -->
+                <div class="card">
+                    <a href="https://www.keralavisionisp.com/" target="_blank" class="card-link">
+                        <img src="keralavision.jpg" alt="KERALA VISION">
+                        <h3>KERALA VISION</h3>
+                    </a>
+                    <p>Blazing-Fast Internet with Kerala Vision Broadband "Connect to India's 5th largest internet service provider, brought directly to your home by MJ Network. Experience ultra-fast, seamless streaming, lag-free online gaming, and uninterrupted work-from-home sessions."</p>
+                    <div class="button-group">
+                        <a href="https://www.keralavisionisp.com/broadband-plans" target="_blank" class="btn-plans">Check Plans</a>
+                        <a href="https://selfcare.keralavisionisp.com/#/login" target="_blank" class="btn-recharge">Recharge Online</a>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- KFON CARD -->
-            <div class="card">
-                <a href="https://kfon.kerala.gov.in/" target="_blank" class="card-link">
-                    <img src="kfon.jpg" alt="KFON">
-                    <h3>KFON</h3>
-                </a>
-                <p>KFON Broadband: Kerala’s Own High-Speed Network "Bring home the power of Kerala’s flagship digital infrastructure. KFON offers high-speed, secure, and highly affordable fiber internet designed to bridge the digital divide."</p>
-                <div class="button-group">
-                    <a href="https://kfon.in/plans?prophazecheck=1" target="_blank" class="btn-plans">Check Plans</a>
-                    <a href="https://selfcare.kfon.co.in/sub/login" target="_blank" class="btn-recharge">Recharge Online</a>
+                
+                <!-- KFON CARD -->
+                <div class="card">
+                    <a href="https://kfon.kerala.gov.in/" target="_blank" class="card-link">
+                        <img src="kfon.jpg" alt="KFON">
+                        <h3>KFON</h3>
+                    </a>
+                    <p>KFON Broadband: Kerala’s Own High-Speed Network "Bring home the power of Kerala’s flagship digital infrastructure. KFON offers high-speed, secure, and highly affordable fiber internet designed to bridge the digital divide."</p>
+                    <div class="button-group">
+                        <a href="https://kfon.in/plans?prophazecheck=1" target="_blank" class="btn-plans">Check Plans</a>
+                        <a href="https://selfcare.kfon.co.in/sub/login" target="_blank" class="btn-recharge">Recharge Online</a>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- BSNL CARD -->
-            <div class="card">
-                <a href="https://bsnl.co.in/broadband/bharatfiber" target="_blank" class="card-link">
-                    <img src="bsnl.jpg" alt="BSNL">
-                    <h3>BSNL</h3>
-                </a>
-                <p>BSNL Bharat Fiber: The Nation’s Trusted High-Speed Internet "Experience the raw power of India’s largest telecom network. BSNL Bharat Fiber delivers supercharged internet speeds with unmatched network stability."</p>
-                <div class="button-group">
-                    <a href="https://bsnl.co.in/broadband/bharatfiber" target="_blank" class="btn-plans">Check Plans</a>
-                    <!-- Updated BSNL Selfcare link verbatim -->
-                    <a href="https://selfcare.bsnl.co.in/home.xhtml" target="_blank" class="btn-recharge">Recharge Online</a>
+                
+                <!-- BSNL CARD -->
+                <div class="card">
+                    <a href="https://bsnl.co.in/broadband/bharatfiber" target="_blank" class="card-link">
+                        <img src="bsnl.jpg" alt="BSNL">
+                        <h3>BSNL</h3>
+                    </a>
+                    <p>BSNL Bharat Fiber: The Nation’s Trusted High-Speed Internet "Experience the raw power of India’s largest telecom network. BSNL Bharat Fiber delivers supercharged internet speeds with unmatched network stability."</p>
+                    <div class="button-group">
+                        <a href="https://bsnl.co.in/broadband/bharatfiber" target="_blank" class="btn-plans">Check Plans</a>
+                        <a href="https://selfcare.bsnl.co.in/home.xhtml" target="_blank" class="btn-recharge">Recharge Online</a>
+                    </div>
                 </div>
-            </div>
 
+            </div>
+        </section>
+    </div>
+
+    <!-- CONSOLIDATED SUPPORT SECTION -->
+    <section id="support" style="background: rgba(30, 41, 59, 0.5); max-width: 100%;">
+        <div style="max-width: 1200px; margin: auto; padding: 0 20px;">
+            <h2>Complaints & <span>Connections</span></h2>
+            <div class="grid-support">
+                
+                <!-- New Connection Block -->
+                <div class="card">
+                    <h3>New Connection</h3>
+                    <input type="text" id="n" placeholder="Full Name">
+                    <input type="tel" id="p" placeholder="Phone Number">
+                    <textarea id="a" rows="3" placeholder="Installation Address"></textarea>
+                    <button class="action-submit-btn btn-reg" id="submitReg">Apply via WhatsApp</button>
+                </div>
+                
+                <!-- Complaints Register Block -->
+                <div class="card">
+                    <h3>Register Complaint</h3>
+                    <input type="text" id="cn" placeholder="Full Name">
+                    <input type="text" id="cid" placeholder="Customer ID / Box No">
+                    <input type="tel" id="cp" placeholder="Mobile Number">
+                    <textarea id="ca" rows="3" placeholder="Detailed Address"></textarea>
+                    <button class="action-submit-btn btn-comp" id="submitComp">Submit Complaint</button>
+                </div>
+                
+            </div>
+            
+            <div class="contact-box">
+                <h3>Visit or Call Us</h3>
+                <p>📍 EK Building, Pettikkada, Nellikkattiri, Palakkad - 679533</p>
+                <p>📞 9447855342 | ✉️ pcvkizhayoor@gmail.com</p>
+            </div>
         </div>
     </section>
 
@@ -298,5 +361,26 @@
         © 2026 MJ Cable Network. All Rights Reserved.
     </footer>
 
+    <!-- Form Processing Logic Script Block -->
+    <script>
+        document.getElementById('submitReg').addEventListener('click', function() {
+            var name = document.getElementById('n').value;
+            var phone = document.getElementById('p').value;
+            var addr = document.getElementById('a').value;
+            if(!name || !phone || !addr) return alert("Please fill all fields");
+            var textOut = "*NEW CONNECTION*%0AName: " + encodeURIComponent(name) + "%0APhone: " + encodeURIComponent(phone) + "%0AAddress: " + encodeURIComponent(addr);
+            window.open("https://wa.me/919447855342?text=" + textOut, '_blank');
+        });
+
+        document.getElementById('submitComp').addEventListener('click', function() {
+            var name = document.getElementById('cn').value;
+            var cid = document.getElementById('cid').value;
+            var phone = document.getElementById('cp').value;
+            var addr = document.getElementById('ca').value;
+            if(!name || !phone || !cid) return alert("Please fill Name, Customer ID, and Phone");
+            var textOut = "*COMPLAINT*%0AName: " + encodeURIComponent(name) + "%0ACustomerID: " + encodeURIComponent(cid) + "%0APhone: " + encodeURIComponent(phone) + "%0AAddress: " + encodeURIComponent(addr);
+            window.open("https://wa.me/919447855342?text=" + textOut, '_blank');
+        });
+    </script>
 </body>
 </html>
