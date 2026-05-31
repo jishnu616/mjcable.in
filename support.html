@@ -4,24 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register-Complaints/ New connection | MJ Cable</title>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #003366; --accent: #e59441; --dark: #111827; }
-        body { font-family: 'Public Sans', sans-serif; margin: 0; background: #f3f4f6; line-height: 1.6; }
-        nav { background: #fff; padding: 15px 20px; display: flex; justify-content: center; gap: 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        nav a { text-decoration: none; color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; }
+        :root {
+            --emperia-bg: #0a0a0c;
+            --emperia-card-bg: #111115;
+            --emperia-cyan: #00f3ff;
+            --text-light: #ffffff;
+            --text-muted: #94a3b8;
+            --accent-orange: #e59441;
+        }
+
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0; background-color: var(--emperia-bg);
+            background-image: linear-gradient(rgba(10, 10, 12, 0.94), rgba(10, 10, 12, 0.94)), url('entertainment.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        nav {
+            background: rgba(17, 17, 21, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--emperia-cyan); }
         header { background: #001f3f; padding: 30px; text-align: center; }
         .logo-small { width: 250px; }
         .container { padding: 60px 20px; max-width: 1000px; margin: auto; }
+        
+        h2 {
+            text-align: center;
+            color: var(--text-light);
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            font-weight: 800;
+        }
+
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .form-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        h3 { color: var(--primary); text-align: center; margin-top: 0; }
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
+        
+        .form-card {
+            background: var(--emperia-card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .form-card h3 { color: var(--text-light); text-align: center; margin-top: 0; margin-bottom: 20px; }
+        
+        input, textarea {
+            width: 100%; padding: 12px; margin-bottom: 15px;
+            background: #181822; border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px; color: white; font-family: inherit;
+        }
+
+        input:focus, textarea:focus { outline: none; border-color: var(--emperia-cyan); }
         button { width: 100%; padding: 14px; border: none; border-radius: 8px; font-weight: 700; color: white; cursor: pointer; text-transform: uppercase; }
-        .btn-reg { background: var(--accent); }
+        .btn-reg { background: var(--accent-orange); }
         .btn-comp { background: #dc2626; }
-        .contact-box { background: var(--dark); color: white; text-align: center; padding: 60px 20px; margin-top: 40px; border-radius: 20px; }
-        footer { text-align: center; padding: 30px; color: #666; font-size: 0.8rem; }
+        .contact-box { background: #050507; color: white; text-align: center; padding: 40px 20px; margin-top: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); }
+        footer { text-align: center; padding: 30px; color: #64748b; font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -31,14 +96,14 @@
     </nav>
     <header><img src="logo.jpg" class="logo-small" alt="MJ Cable Network"></header>
     <div class="container">
-        <h2 style="text-align: center; color: #003366; text-transform: uppercase; margin-bottom: 40px;">Register-Complaints/ New connection</h2>
+        <h2>Register-Complaints/ New connection</h2>
         <div class="grid">
             <div class="form-card">
                 <h3>New Connection</h3>
                 <input type="text" id="n" placeholder="Full Name">
                 <input type="tel" id="p" placeholder="Phone Number">
                 <textarea id="a" rows="3" placeholder="Installation Address"></textarea>
-                <button class="btn-reg" onclick="send('New Connection', 'n','p','a','')">Apply via WhatsApp</button>
+                <button class="btn-reg" id="submitReg">Apply via WhatsApp</button>
             </div>
             <div class="form-card">
                 <h3>Register Complaint</h3>
@@ -46,7 +111,7 @@
                 <input type="text" id="cid" placeholder="Customer ID / Box No">
                 <input type="tel" id="cp" placeholder="Mobile Number">
                 <textarea id="ca" rows="3" placeholder="Detailed Address"></textarea>
-                <button class="btn-comp" onclick="send('Complaint', 'cn','cp','ca','cid')">Submit Complaint</button>
+                <button class="btn-comp" id="submitComp">Submit Complaint</button>
             </div>
         </div>
         <div class="contact-box">
@@ -57,15 +122,24 @@
     </div>
     <footer>© 2026 MJ Cable Network.</footer>
     <script>
-        function send(type, ni, pi, ai, ci) {
-            const name = document.getElementById(ni).value;
-            const phone = document.getElementById(pi).value;
-            const addr = document.getElementById(ai).value;
-            const cid = ci ? document.getElementById(ci).value : '';
-            if(!name || !phone || !addr) return alert("Please fill all required fields");
-            const msg = `*${type}*%0AName: ${name}%0APhone: ${phone}%0AAddress: ${addr}${cid ? '%0ACustomerID: '+cid : ''}`;
-            window.open(`https://wa.me/919447855342?text=${msg}`, '_blank');
-        }
-    </script>
+    document.getElementById('submitReg').addEventListener('click', function() {
+        var name = document.getElementById('n').value;
+        var phone = document.getElementById('p').value;
+        var addr = document.getElementById('a').value;
+        if(!name || !phone || !addr) return alert("Please fill all fields");
+        var textOut = "*NEW CONNECTION*%0AName: " + encodeURIComponent(name) + "%0APhone: " + encodeURIComponent(phone) + "%0AAddress: " + encodeURIComponent(addr);
+        window.open("https://wa.me/919447855342?text=" + textOut, '_blank');
+    });
+
+    document.getElementById('submitComp').addEventListener('click', function() {
+        var name = document.getElementById('cn').value;
+        var cid = document.getElementById('cid').value;
+        var phone = document.getElementById('cp').value;
+        var addr = document.getElementById('ca').value;
+        if(!name || !phone || !cid) return alert("Please fill Name, Customer ID, and Phone");
+        var textOut = "*COMPLAINT*%0AName: " + encodeURIComponent(name) + "%0ACustomerID: " + encodeURIComponent(cid) + "%0APhone: " + encodeURIComponent(phone) + "%0AAddress: " + encodeURIComponent(addr);
+        window.open("https://wa.me/919447855342?text=" + textOut, '_blank');
+    });
+</script>
 </body>
 </html>
