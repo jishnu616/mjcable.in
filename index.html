@@ -3,93 +3,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MJ Cable Network | Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>MJ Cable Network</title>
+    
+    <!-- Ultra-modern avant-garde font styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
     <style>
-        :root { --primary: #003366; --accent: #e59441; --white: #ffffff; --light: #f9fafb; }
-        * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Public Sans', sans-serif; margin: 0; background: var(--light); color: #1f2937; line-height: 1.7; }
-        nav { background: var(--white); padding: 15px 20px; display: flex; justify-content: center; gap: 40px; position: sticky; top: 0; z-index: 2000; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
-        nav a { text-decoration: none; color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; }
-        header { background: linear-gradient(135deg, #001f3f 0%, #004080 100%); padding: 60px 20px; text-align: center; border-bottom: 6px solid var(--accent); }
-        .main-logo { width: 480px; max-width: 90%; height: auto; }
-        section { padding: 80px 20px; max-width: 1200px; margin: auto; }
-        h2 { text-align: center; color: var(--primary); text-transform: uppercase; font-weight: 800; }
-        h2::after { content: ''; display: block; width: 50px; height: 4px; background: var(--accent); margin: 10px auto; border-radius: 2px; }
-        .about-box { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: justify; }
-        
-        /* Grid specifically for 3 items in a row */
-        .card-container { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 25px; 
-            margin-top: 40px; 
+        :root {
+            --diabla-navy: #002244;
+            --diabla-orange: #e59441;
+            --bg-light: #fcfcfc;
+            --text-dark: #111111;
+            --text-muted: #555555;
+            --white: #ffffff;
         }
 
-        .card { background: white; padding: 35px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; }
-        
-        .tv-card { grid-column: 1 / -1; max-width: 850px; margin: 0 auto; }
-        .tv-card img { height: 250px !important; margin-bottom: 30px; object-fit: contain; }
-        
-        .card img { height: 90px; margin-bottom: 20px; object-fit: contain; }
-        .card p { text-align: justify; font-size: 0.95rem; }
-        footer { background: #000; color: #9ca3af; text-align: center; padding: 25px; font-size: 0.85rem; }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.02em;
+        }
 
-        @media (max-width: 1000px) {
-            .card-container { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Diabla-style Minimal Header Menu */
+        nav {
+            background: rgba(252, 252, 252, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .nav-logo-text {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--diabla-navy);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--diabla-orange);
+        }
+
+        /* Massive Hero Section */
+        header {
+            background: linear-gradient(180deg, var(--diabla-navy) 0%, #001122 100%);
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .main-logo {
+            width: 550px;
+            max-width: 85%;
+            height: auto;
+            animation: fadeIn 1.2s ease;
+        }
+
+        /* Diabla Conceptual Layout Structure */
+        section {
+            padding: 120px 5%;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        /* Giant Typographic Headlines */
+        h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--diabla-navy);
+            margin-bottom: 50px;
+            line-height: 0.95;
+            letter-spacing: -3px;
+        }
+
+        /* Clean Editorial Style About Box */
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-headline {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--diabla-orange);
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+
+        /* Immersive Block Backgrounds for Separators */
+        .bg-block {
+            background-color: #f3f3f3;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        /* Large, Dramatic Digital TV Layout */
+        .tv-showcase {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .tv-image-container {
+            background: var(--white);
+            padding: 60px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .tv-image-container img {
+            width: 100%;
+            max-height: 380px;
+            object-fit: contain;
+        }
+
+        .tv-details h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--diabla-navy);
+            margin-bottom: 20px;
+        }
+
+        .tv-details p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+
+        /* Modern Internet Services Row Grid */
+        .internet-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .isp-card {
+            background: var(--white);
+            padding: 50px 35px;
+            border: 1px solid #eaeaea;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .isp-card:hover {
+            border-color: var(--text-dark);
+            transform: translateY(-5px);
+        }
+
+        .isp-logo {
+            height: 110px;
+            width: auto;
+            margin-bottom: 35px;
+            object-fit: contain;
+        }
+
+        .isp-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: var(--diabla-navy);
+        }
+
+        .isp-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+
+        /* Minimalistic Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: #888888;
+            padding: 60px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .footer-brand {
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            h2 { font-size: 2.8rem; }
+            .internet-grid { grid-template-columns: 1fr; gap: 40px; }
+            .about-layout, .tv-showcase { grid-template-columns: 1fr; gap: 40px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Minimalistic Menu Bar -->
     <nav>
-        <a href="index.html">Home</a>
-        <a href="support.html">Register-Complaints/ New connection</a>
+        <div class="nav-logo-text">MJ Network</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="support.html">Register-Complaints/ New connection</a>
+        </div>
     </nav>
-    <header><img src="logo.jpg" class="main-logo" alt="MJ Cable Network"></header>
-    
+
+    <!-- Sleek High-Contrast Banner -->
+    <header>
+        <img src="logo.jpg" class="main-logo" alt="MJ Cable Network">
+    </header>
+
+    <!-- Editorial Layout About Section -->
     <section id="about">
-        <h2>About MJ Cable Network</h2>
-        <div class="about-box">
-            <p>With over 20 years of rich experience in the media and entertainment industry, MJ Cable Network has grown from a humble local cable provider into a modern digital hub. Based proudly in Nellikkattiri, Palakkad district, we have spent the last two decades keeping our community informed, entertained, and connected. What started as a mission to deliver clear TV signals to local households has now evolved into a state-of-the-art network infrastructure. Today, we don't just bring you premium digital television through Kerala Vision Digital TV, but we also power local homes, businesses, and schools with high-speed fiber internet through India’s top broadband providers like Kerala Vision Broadband, BSNL Bharat Fiber, and KFON.</p>
+        <h2>About<br>The Network.</h2>
+        <div class="about-layout">
+            <div class="about-headline">
+                Two decades of structural growth, keeping our community robustly interconnected.
+            </div>
+            <div class="about-text">
+                With over 20 years of rich experience in the media and entertainment industry, MJ Cable Network has grown from a humble local cable provider into a modern digital hub. Based proudly in Nellikkattiri, Palakkad district, we have spent the last two decades keeping our community informed, entertained, and connected. What started as a mission to deliver clear TV signals to local households has now evolved into a state-of-the-art network infrastructure. Today, we don't just bring you premium digital television through Kerala Vision Digital TV, but we also power local homes, businesses, and schools with high-speed fiber internet through India’s top broadband providers like Kerala Vision Broadband, BSNL Bharat Fiber, and KFON.
+            </div>
         </div>
     </section>
 
-    <section id="digital-tv" style="background: #f0f7ff; max-width: 100%;">
-        <div style="max-width: 1200px; margin: auto;">
-            <h2>Digital TV</h2>
-            <div class="card-container">
-                <div class="card tv-card">
-                    <img src="digitaltv.jpg" alt="Digital TV">
+    <!-- Full Width Neutral Blocks for Television -->
+    <div class="bg-block">
+        <section id="digital-tv">
+            <h2>Digital TV.</h2>
+            <div class="tv-showcase">
+                <div class="tv-image-container">
+                    <img src="digitaltv.jpg" alt="Digital TV Banner">
+                </div>
+                <div class="tv-details">
                     <h3>KERALA VISION DIGITAL TV</h3>
                     <p>With MJ Cable Network, bring home the ultimate entertainment experience. Get over 300+ Kerala Vision HD and digital channels with absolute clarity. Thanks to our pure fiber-optic network (FTTH/FTTP), your television and high-speed broadband will run seamlessly 24/7, no matter the weather.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
+    <!-- Minimalist Industrial Layout for ISPs -->
     <section id="internet">
-        <h2>Internet Services</h2>
-        <div class="card-container">
-            <div class="card">
-                <img src="keralavision.jpg" alt="KERALA VISION">
+        <h2>Internet<br>Infrastructures.</h2>
+        <div class="internet-grid">
+            
+            <div class="isp-card">
+                <img src="keralavision.jpg" alt="KERALA VISION" class="isp-logo">
                 <h3>KERALA VISION</h3>
                 <p>Blazing-Fast Internet with Kerala Vision Broadband "Connect to India's 6th largest internet service provider, brought directly to your home by MJ Network. Experience ultra-fast, seamless streaming, lag-free online gaming, and uninterrupted work-from-home sessions. With unlimited data packages and pure fiber-optic technology, we keep your home running at full speed."</p>
             </div>
             
-            <div class="card">
-                <img src="kfon.jpg" alt="KFON">
+            <div class="isp-card">
+                <img src="kfon.jpg" alt="KFON" class="isp-logo">
                 <h3>KFON</h3>
                 <p>KFON Broadband: Kerala’s Own High-Speed Network "Bring home the power of Kerala’s flagship digital infrastructure, delivered straight to your doorstep by MJ Network. KFON offers high-speed, secure, and highly affordable fiber internet designed to bridge the digital divide. Enjoy seamless connectivity for e-governance services, online education, and family entertainment with rock-solid stability."</p>
             </div>
             
-            <div class="card">
-                <img src="bsnl.jpg" alt="BSNL">
+            <div class="isp-card">
+                <img src="bsnl.jpg" alt="BSNL" class="isp-logo">
                 <h3>BSNL</h3>
                 <p>BSNL Bharat Fiber: The Nation’s Trusted High-Speed Internet "Experience the raw power of India’s largest and most reliable telecom network, brought to your neighborhood by MJ Network. BSNL Bharat Fiber (FTTH) delivers supercharged internet speeds with unmatched network stability. From seamless video conferencing to endless entertainment, connect with the ultimate trust of BSNL."</p>
             </div>
+
         </div>
     </section>
 
-    <footer>© 2026 MJ Cable Network. All Rights Reserved.</footer>
+    <!-- Structural High Contrast Footer -->
+    <footer>
+        <div class="footer-brand">© 2026 MJ Cable Network.</div>
+        <div>All Infrastructure Rights Reserved.</div>
+    </footer>
+
 </body>
 </html>
