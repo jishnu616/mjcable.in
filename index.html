@@ -58,11 +58,13 @@
 
         nav a:hover { color: var(--emperia-cyan); }
         
+        /* Premium button layout placeholder for PAY NOW */
         nav a.pay-nav-btn {
             color: var(--pay-green);
             border: 1px solid var(--pay-green);
             padding: 6px 14px;
             border-radius: 6px;
+            cursor: pointer;
         }
         nav a.pay-nav-btn:hover {
             background: var(--pay-green);
@@ -229,12 +231,13 @@
 </head>
 <body>
 
-    <!-- Simplified Single-Page Anchor Navigation -->
+    <!-- Single-Page Navigation Menu -->
     <nav>
         <a href="#about">About Us</a>
         <a href="#services">Services</a>
         <a href="#support">Complaints & New Connections</a>
-        <a href="https://wa.me/919447855342?text=*BILL%20PAYMENT*%0AHello%2C%20I%20would%20like%20to%20pay%20my%20monthly%20subscription%20bill.%20Please%20send%20me%20the%20payment%20link%20or%20QR%20code." target="_blank" class="pay-nav-btn">Pay Now</a>
+        <!-- Action target pointer replaced with basic window script loop to block redirects -->
+        <a href="javascript:void(0);" class="pay-nav-btn">Pay Now</a>
     </nav>
 
     <header>
@@ -256,7 +259,7 @@
         </div>
     </section>
 
-    <!-- SERVICES ID WRAPPER -->
+    <!-- SERVICES -->
     <div id="services">
         <!-- DIGITAL TV HOUSING -->
         <section id="digital-tv" style="background: rgba(30, 41, 59, 0.5); max-width: 100%;">
@@ -361,7 +364,7 @@
         © 2026 MJ Cable Network. All Rights Reserved.
     </footer>
 
-    <!-- Form Processing Logic Script Block -->
+    <!-- Backend WhatsApp Logic Scripts -->
     <script>
         document.getElementById('submitReg').addEventListener('click', function() {
             var name = document.getElementById('n').value;
