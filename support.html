@@ -56,7 +56,7 @@
 
         nav a:hover { color: var(--emperia-cyan); }
 
-        /* --- LOGO LEFT / TEXT RIGHT HEADER --- */
+        /* --- HEADER LAYOUT --- */
         header {
             background: rgba(30, 41, 59, 0.6);
             padding: 40px 5%;
@@ -69,12 +69,12 @@
         .header-container {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 30px;
             max-width: 1200px;
         }
 
         .main-logo { 
-            width: 180px;      
+            width: 230px;      /* Increased logo width */
             height: auto; 
             object-fit: contain;
             filter: drop-shadow(0 0 15px rgba(0, 243, 255, 0.1));
@@ -174,7 +174,7 @@
             .header-container { flex-direction: column; text-align: center; }
             .logo-text { text-align: center; }
             .logo-text h1 { font-size: 2rem; }
-            .main-logo { width: 120px; }
+            .main-logo { width: 160px; }
             .grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -188,7 +188,8 @@
 
     <header>
         <div class="header-container">
-            <img src="logo.jpg" class="main-logo" alt="Logo Icon">
+            <!-- Updated Image Filename Verbatim -->
+            <img src="mjcablelogo.jpg" class="main-logo" alt="Logo Icon">
             <div class="logo-text">
                 <h1>MJ <span>NETWORK</span></h1>
                 <p class="sub-brand">CABLE NETWORK</p>
@@ -225,25 +226,27 @@
     </div>
 
     <footer>© 2026 MJ Cable Network. All Rights Reserved.</footer>
+    
+    <!-- Functional backend script remains at the bottom of the body -->
     <script>
-    document.getElementById('submitReg').addEventListener('click', function() {
-        var name = document.getElementById('n').value;
-        var phone = document.getElementById('p').value;
-        var addr = document.getElementById('a').value;
-        if(!name || !phone || !addr) return alert("Please fill all fields");
-        var textOut = "*NEW CONNECTION*%0AName: " + encodeURIComponent(name) + "%0APhone: " + encodeURIComponent(phone) + "%0AAddress: " + encodeURIComponent(addr);
-        window.open("https://wa.me/919447855342?text=" + textOut, '_blank');
-    });
+        document.getElementById('submitReg').addEventListener('click', function() {
+            var name = document.getElementById('n').value;
+            var phone = document.getElementById('p').value;
+            var addr = document.getElementById('a').value;
+            if(!name || !phone || !addr) return alert("Please fill all fields");
+            var textOut = "*NEW CONNECTION*%0AName: " + encodeURIComponent(name) + "%0APhone: " + encodeURIComponent(phone) + "%0AAddress: " + encodeURIComponent(addr);
+            window.open("https://wa.me/919447855342?text=" + textOut, '_blank');
+        });
 
-    document.getElementById('submitComp').addEventListener('click', function() {
-        var name = document.getElementById('cn').value;
-        var cid = document.getElementById('cid').value;
-        var phone = document.getElementById('cp').value;
-        var addr = document.getElementById('ca').value;
-        if(!name || !phone || !cid) return alert("Please fill Name, Customer ID, and Phone");
-        var textOut = "*COMPLAINT*%0AName: " + encodeURIComponent(name) + "%0ACustomerID: " + encodeURIComponent(cid) + "%0APhone: " + encodeURIComponent(phone) + "%0AAddress: " + encodeURIComponent(addr);
-        window.open("https://wa.me/919447855342?text=" + textOut, '_blank');
-    });
-</script>
+        document.getElementById('submitComp').addEventListener('click', function() {
+            var name = document.getElementById('cn').value;
+            var cid = document.getElementById('cid').value;
+            var phone = document.getElementById('cp').value;
+            var addr = document.getElementById('ca').value;
+            if(!name || !phone || !cid) return alert("Please fill Name, Customer ID, and Phone");
+            var textOut = "*COMPLAINT*%0AName: " + encodeURIComponent(name) + "%0ACustomerID: " + encodeURIComponent(cid) + "%0APhone: " + encodeURIComponent(phone) + "%0AAddress: " + encodeURIComponent(addr);
+            window.open("https://wa.me/919447855342?text=" + textOut, '_blank');
+        });
+    </script>
 </body>
 </html>
