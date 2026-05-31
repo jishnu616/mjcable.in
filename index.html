@@ -28,6 +28,10 @@
 
         body {
             background-color: var(--emperia-bg);
+            background-image: linear-gradient(rgba(10, 10, 12, 0.96), rgba(10, 10, 12, 0.96)), url('entertainment.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
             color: var(--text-light);
             overflow-x: hidden;
             line-height: 1.7;
@@ -65,7 +69,7 @@
 
         /* --- NAVIGATION --- */
         nav {
-            background: rgba(10, 10, 12, 0.85);
+            background: rgba(10, 10, 12, 0.95);
             backdrop-filter: blur(12px);
             padding: 20px 6%;
             display: flex;
@@ -111,6 +115,10 @@
         /* --- HERO BANNER --- */
         header {
             background: radial-gradient(circle at center, #161622 0%, var(--emperia-bg) 100%);
+            background-image: radial-gradient(circle at center, rgba(22, 22, 34, 0.95) 0%, rgba(10, 10, 12, 0.95) 100%), url('entertainment.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
             min-height: 55vh;
             display: flex;
             justify-content: center;
@@ -132,6 +140,8 @@
             padding: 100px 6%;
             max-width: 1300px;
             margin: auto;
+            position: relative;
+            z-index: 1;
         }
 
         .section-title-wrap {
@@ -157,7 +167,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 30px;
-            background: var(--emperia-card-bg);
+            background: rgba(17, 17, 21, 0.98);
             padding: 50px;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -180,7 +190,7 @@
 
         /* Large Featured Digital TV Panel */
         .tv-premium-panel {
-            background: var(--emperia-card-bg);
+            background: rgba(17, 17, 21, 0.98);
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             display: grid;
@@ -190,10 +200,10 @@
         }
 
         .tv-media {
-            background: #181822;
+            background: rgba(24, 24, 34, 0.98);
             padding: 60px;
             display: flex;
-            justify-content: center;
+            justify(content: center;
             align-items: center;
             border-right: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -234,7 +244,7 @@
         }
 
         .emperia-card {
-            background: var(--emperia-card-bg);
+            background: rgba(17, 17, 21, 0.98);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 16px;
             padding: 45px 35px;
@@ -280,7 +290,7 @@
 
         /* Separator Blocks */
         .split-bg {
-            background: #0e0e12;
+            background: rgba(14, 14, 18, 0.96);
             border-top: 1px solid rgba(255, 255, 255, 0.02);
             border-bottom: 1px solid rgba(255, 255, 255, 0.02);
         }
@@ -295,6 +305,8 @@
             align-items: center;
             font-size: 0.85rem;
             color: #555566;
+            position: relative;
+            z-index: 1;
         }
 
         .footer-logo {
